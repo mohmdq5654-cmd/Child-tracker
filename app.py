@@ -1,3 +1,8 @@
+import streamlit as st
+
+# ==========================================
+# 1. Developmental Data (Ages 1 to 16)
+# ==========================================
 development_data = {
     1.0: {
         "motor": "Walking with support, standing alone briefly, pincer grasp.",
@@ -8,160 +13,166 @@ development_data = {
     2.0: {
         "motor": "Running, kicking a ball forward, climbing furniture.",
         "psycho": "Independence phase ('Terrible Twos'). Say 'no' often.",
-        "nutrition": "Budget: Fava beans, cottage cheese, rice. | Premium: Lean beef meatballs, berries, quinoa.",
-        "challenges": "Problem: Severe temper tantrums. | Solution: Stay calm, ignore the crying if safe, and redirect their attention to a new toy."
+        "nutrition": "Budget: Fava beans, cottage cheese, rice. | Premium: Lean beef meatballs, berries.",
+        "challenges": "Problem: Severe temper tantrums. | Solution: Stay calm, ignore the crying if safe, and redirect their attention."
     },
     3.0: {
         "motor": "Riding a tricycle, standing on one foot for a second.",
         "psycho": "Imaginative play begins. Asks 'why' constantly.",
-        "nutrition": "Budget: Boiled eggs, local yogurt, sweet potatoes. | Premium: Fresh berries, walnuts, grilled chicken.",
-        "challenges": "Problem: Picky eating & Fear of the dark. | Solution: Make food shapes fun, and use a dim nightlight in their room."
+        "nutrition": "Budget: Boiled eggs, local yogurt, sweet potatoes. | Premium: Fresh berries, walnuts.",
+        "challenges": "Problem: Picky eating & Fear of the dark. | Solution: Make food shapes fun, use a dim nightlight."
     },
     4.0: {
         "motor": "Hopping on one foot, catching a bounced ball.",
-        "psycho": "Cooperative play with other kids. Distinguishing fantasy from reality.",
-        "nutrition": "Budget: Chickpeas, spinach, whole wheat pasta. | Premium: Avocado slices, baked salmon, organic milk.",
-        "challenges": "Problem: Testing boundaries & 'Imaginary' lying. | Solution: Set clear, simple rules. Gently explain the difference between a story and the truth."
+        "psycho": "Cooperative play. Distinguishing fantasy from reality.",
+        "nutrition": "Budget: Chickpeas, spinach, whole wheat pasta. | Premium: Avocado slices, baked salmon.",
+        "challenges": "Problem: Testing boundaries. | Solution: Set clear, simple rules. Explain the difference between stories and truth."
     },
     5.0: {
         "motor": "Using a fork and spoon well, drawing a person.",
         "psycho": "Wants to please friends, follows rules better.",
-        "nutrition": "Budget: Lentil soup, cheese sandwiches, dates. | Premium: Lean turkey, asparagus, blueberries.",
-        "challenges": "Problem: Separation anxiety at kindergarten. | Solution: Make goodbyes quick and positive. Always pick them up on time."
+        "nutrition": "Budget: Lentil soup, cheese sandwiches. | Premium: Lean turkey, asparagus.",
+        "challenges": "Problem: Separation anxiety at school. | Solution: Make goodbyes quick and positive."
     },
     6.0: {
         "motor": "Skipping, riding a bicycle without training wheels.",
         "psycho": "School transition. Strong desire to learn.",
-        "nutrition": "Budget: Peanut butter, milk, roasted potatoes. | Premium: Quinoa salad, fresh fish, strawberries.",
-        "challenges": "Problem: Backtalk and defiance. | Solution: Don't argue back. Set limits on disrespectful tone, but praise good communication."
+        "nutrition": "Budget: Peanut butter, milk, roasted potatoes. | Premium: Quinoa salad, fresh fish.",
+        "challenges": "Problem: Backtalk and defiance. | Solution: Don't argue back. Set limits on disrespectful tone."
     },
     7.0: {
         "motor": "Tying shoelaces independently, better balance.",
         "psycho": "Growing independence. Complains about fairness.",
-        "nutrition": "Budget: Whole wheat bread, white cheese, tomatoes. | Premium: Grilled salmon, mixed premium nuts.",
-        "challenges": "Problem: Perfectionism & fear of failure. | Solution: Praise their 'effort' rather than the 'result'. Normalize making mistakes."
+        "nutrition": "Budget: Whole wheat bread, white cheese, tomatoes. | Premium: Grilled salmon, mixed nuts.",
+        "challenges": "Problem: Perfectionism & fear of failure. | Solution: Praise effort rather than the result."
     },
     8.0: {
         "motor": "Improved coordination, fluid movements in sports.",
         "psycho": "Peer groups become very important.",
-        "nutrition": "Budget: Fava beans, rice, seasonal greens. | Premium: Grass-fed meat, pistachios, mangoes.",
+        "nutrition": "Budget: Fava beans, rice, seasonal greens. | Premium: Grass-fed meat, pistachios.",
         "challenges": "Problem: Screen time battles. | Solution: Create a visual schedule. Offer outdoor play as a reward."
     },
     9.0: {
         "motor": "High energy, advanced hand-eye coordination.",
         "psycho": "Peer pressure starts. Forming deeper friendships.",
-        "nutrition": "Budget: Beans, affordable dairy, homemade baked goods. | Premium: Greek yogurt, almonds, roasted duck.",
-        "challenges": "Problem: Dealing with bullies or peer drama. | Solution: Keep open dialogue. Role-play how to respond to unkind kids."
+        "nutrition": "Budget: Beans, affordable dairy. | Premium: Greek yogurt, almonds, roasted duck.",
+        "challenges": "Problem: Dealing with bullies. | Solution: Keep open dialogue. Role-play how to respond."
     },
     10.0: {
         "motor": "Fine motor skills perfected, stamina increases.",
         "psycho": "Approaching puberty. Seeking more privacy.",
-        "nutrition": "Budget: Dark leafy greens, lentils, affordable fish. | Premium: Pecans, premium salmon, organic veggies.",
-        "challenges": "Problem: Pre-puberty mood swings. | Solution: Show patience, avoid taking outbursts personally, and respect their need for space."
+        "nutrition": "Budget: Dark leafy greens, lentils, affordable fish. | Premium: Pecans, premium salmon.",
+        "challenges": "Problem: Pre-puberty mood swings. | Solution: Show patience and respect their need for space."
     },
     11.0: {
         "motor": "Growth spurts start (especially for girls).",
         "psycho": "Mood swings begin due to hormones.",
-        "nutrition": "Budget: Eggs, spinach, seasonal fruits, chicken breast. | Premium: Lean steak, walnuts, high-protein smoothies.",
-        "challenges": "Problem: Body image insecurities. | Solution: Focus conversations on 'health and strength' rather than weight or appearance."
+        "nutrition": "Budget: Eggs, spinach, seasonal fruits. | Premium: Lean steak, walnuts.",
+        "challenges": "Problem: Body image insecurities. | Solution: Focus conversations on health and strength."
     },
     12.0: {
         "motor": "Growth spurts for boys, occasional clumsiness.",
         "psycho": "Identity exploration. May challenge rules.",
-        "nutrition": "Budget: Canned tuna, chickpeas, rice, oranges. | Premium: Mixed nuts, premium protein cuts, avocado oil.",
-        "challenges": "Problem: Rebellion against family rules. | Solution: Start negotiating some rules with them to give them a healthy sense of control."
+        "nutrition": "Budget: Canned tuna, chickpeas, rice. | Premium: Mixed nuts, premium protein cuts.",
+        "challenges": "Problem: Rebellion against family rules. | Solution: Start negotiating some rules with them."
     },
     13.0: {
         "motor": "Body changes become obvious, increased muscle mass.",
         "psycho": "Teenage phase. Focus on body image.",
-        "nutrition": "Budget: Lentils, roasted chicken, whole grain bread. | Premium: Quinoa, fresh seafood, hazelnut.",
-        "challenges": "Problem: Screen addiction & late-night texting. | Solution: Establish 'tech-free zones' (like the dinner table) and collect phones before bed."
+        "nutrition": "Budget: Lentils, roasted chicken, whole grain bread. | Premium: Quinoa, fresh seafood.",
+        "challenges": "Problem: Screen addiction & late-night texting. | Solution: Establish tech-free zones."
     },
     14.0: {
         "motor": "Physical maturation continues, high energy needs.",
         "psycho": "Strong focus on peer acceptance. Abstract thinking.",
-        "nutrition": "Budget: Legumes, eggs, pasta, local beef. | Premium: Steak, extra virgin olive oil, diverse berries.",
-        "challenges": "Problem: Academic stress and procrastination. | Solution: Help them break large tasks into small steps. Avoid extreme pressure."
+        "nutrition": "Budget: Legumes, eggs, pasta, local beef. | Premium: Steak, extra virgin olive oil.",
+        "challenges": "Problem: Academic stress and procrastination. | Solution: Help them break large tasks into small steps."
     },
     15.0: {
         "motor": "Nearing adult height (especially girls).",
         "psycho": "Exploring romantic interests, planning for the future.",
-        "nutrition": "Budget: Fava beans, local fruits, potatoes. | Premium: Protein smoothies, pistachios, organic chicken.",
-        "challenges": "Problem: Romantic heartbreak or social exclusion. | Solution: Listen without judgment. Never minimize their feelings by saying 'it's just a phase'."
+        "nutrition": "Budget: Fava beans, local fruits. | Premium: Protein smoothies, pistachios.",
+        "challenges": "Problem: Social exclusion. | Solution: Listen without judgment. Never minimize their feelings."
     },
     16.0: {
         "motor": "Reaching near adult physical maturity and strength.",
         "psycho": "Seeking deeper relationships, stronger sense of self.",
-        "nutrition": "Budget: Oats, affordable poultry, seasonal salads. | Premium: Seafood, assorted premium nuts, beef tenderloin.",
-        "challenges": "Problem: Anxiety about the future (college/career). | Solution: Guide them gently without dictating choices. Treat them more like young adults."
+        "nutrition": "Budget: Oats, affordable poultry. | Premium: Seafood, assorted premium nuts.",
+        "challenges": "Problem: Anxiety about the future. | Solution: Guide them gently without dictating choices."
     }
 }
 
+# ==========================================
+# 2. Calculations
+# ==========================================
 def calculate_vitals(age_years):
-   
     weight = (age_years * 2) + 8
-    
     height = (age_years * 6) + 77
-    
     return weight, height
 
 def calculate_feeding(weight):
     daily_intake_ml = weight * 120
     single_feed = daily_intake_ml / 8
-    return daily_intake_ml , single_feed
+    return daily_intake_ml, single_feed
+
 def calculate_calories(age_years):
-    calories = 1000 + (age_years * 100)
-    return calories
+    return 1000 + (age_years * 100)
 
-print("Welcome to Child Growth Tracker! ")
-parent_name = input("What is your name? ")
-child_name = input("What is your child's name? ")
-age = float(input(f"How old is {child_name} in years?): "))
+# ==========================================
+# 3. Streamlit UI
+# ==========================================
+st.set_page_config(page_title="Child Growth Tracker", page_icon="👶", layout="centered")
 
+st.title("👶 Child Growth & Development Tracker")
+st.write("Welcome! This tool helps you track your child's physical and psychological milestones.")
+st.markdown("---")
 
-weight, height = calculate_vitals(age)
-daily_intake_ml , single_feed = calculate_feeding(weight)
+# User Inputs
+col1, col2 = st.columns(2)
+with col1:
+    parent_name = st.text_input("Your Name:")
+with col2:
+    child_name = st.text_input("Child's Name:")
 
-if age > 12.0:
-    print("[Note: Standard weight/height formulas vary greatly after puberty due to growth spurts.]")
-print("\n=====================================")
-print(f" Growth Report for {child_name}")
-print("=====================================")
-print(f" Weight: {weight} kg")
-print(f" Height: {height} cm")
-print("=====================================\n")
-if age <= 2.0:
-    daily_intake_ml, single_feed = calculate_feeding(weight)
-    print(" [Diet: Milk Dependent]")
-    print(f" Total Daily Milk: {round(daily_intake_ml)} ml")
-    print(f" Single Feed (every 3 hrs): {round(single_feed)} ml")
-    if age >= 0.5:
-        print(" ⚠️ Note: Begin introducing pureed solid foods alongside milk.")
-else:
-    daily_calories = calculate_calories(age)
-    print("️ [Diet: Solid Foods Dependent]")
-    print(f" Expected Daily Calories: ~{round(daily_calories)} kcal")
-    print(" Recommended Routine: 3 Main Meals + 2 Healthy Snacks")
+age = st.number_input(f"Child's Age in Years (e.g., 2.0, 7.5):", min_value=0.5, max_value=16.0, value=2.0, step=0.5)
 
-if age in development_data:
-    info = development_data[age]
-    print("\n--- Developmental Milestones ---")
-    print(f" Motor Skills: {info['motor']}")
-    print(f" Challenges & Solutions: {info['challenges']}")
-    print(f" Psychological (Advice for {parent_name}): {info['psycho']}")
-    print(f" Nutrition: {info['nutrition']}")
-else:
-    closest_age = round(age)
-    if closest_age in development_data:
-        info = development_data[closest_age]
-        print(f"\n---  Milestones (Approximate for {closest_age} years) ---")
-        print(f" Motor Skills: {info['motor']}")
-        print(f" Psychology (Advice for {parent_name}): {info['psycho']}")
-        print(f"Challenges & Solutions: {info['challenges']}")
-        print(f" Nutrition Variety:\n   {info['nutrition']}")
+# Generate Report Button
+if st.button("Generate Comprehensive Report", type="primary") or (parent_name and child_name):
+    if parent_name and child_name:
+        weight, height = calculate_vitals(age)
+        
+        st.markdown("---")
+        st.subheader(f"📊 Report for {child_name}")
+        
+        if age > 12.0:
+            st.warning("Note: Standard height/weight formulas vary after puberty due to growth spurts.")
+        
+        # Vitals Section
+        v_col1, v_col2 = st.columns(2)
+        with v_col1:
+            st.info(f"⚖️ **Expected Weight:** {weight} kg")
+        with v_col2:
+            st.info(f"📏 **Expected Height:** {height} cm")
+            
+        # Nutrition Section
+        st.subheader("🍽️ Nutrition & Daily Intake")
+        if age <= 2.0:
+            daily_intake_ml, single_feed = calculate_feeding(weight)
+            st.success(f"🍼 **Milk-Dependent Diet**\n\nTotal Daily Milk: {round(daily_intake_ml)} ml\n\nSingle Feed (every 3 hrs): {round(single_feed)} ml")
+        else:
+            daily_calories = calculate_calories(age)
+            st.success(f"🥘 **Solid Foods Diet**\n\nExpected Daily Calories: ~{round(daily_calories)} kcal\n\nRoutine: 3 Main Meals + 2 Snacks")
+
+        # Developmental Section
+        st.subheader("🧠 Developmental Milestones")
+        closest_age = round(age)
+        if closest_age in development_data:
+            info = development_data[closest_age]
+            st.write(f"🏃 **Motor Skills:** {info['motor']}")
+            st.write(f"💡 **Psychology (Advice for {parent_name}):** {info['psycho']}")
+            st.error(f"⚠️ **Challenges & Solutions:** {info['challenges']}")
+            st.write(f"🍎 **Nutrition Variety:** {info['nutrition']}")
+        else:
+            st.info("Data for this specific age is currently being updated.")
     else:
-        print("\n[Note: Detailed developmental advice for this age is being updated.]")
-    
-print("=====================================\n")
-
-
+        st.error("Please enter both your name and your child's name to generate the report.")
