@@ -5,115 +5,131 @@ import streamlit as st
 
 development_data = {
     1.0: {
-        "motor": "Walking with support, standing alone. Activities: Safe home obstacle courses with pillows (Free) or indoor play areas (Premium).",
-        "psycho": "Separation anxiety peaks. Starts imitating parents' daily tasks.",
-        "nutrition": "Budget: Mashed potatoes, boiled egg yolks, seasonal local fruits. | Premium: Mashed avocado, pureed salmon.",
-        "challenges": "Problem: Sleep regression & Teething. | Solution: Maintain a strict bedtime routine and use cold, clean teething rings.",
+        "expected_height": 75,
+        "experiences": "Transitioning from baby to toddler. Rapid physical growth and beginning to understand simple words. They are exploring their environment with all their senses.",
+        "activities": "Sensory play (water/sand), large building blocks, listening to music, and rolling a soft ball.",
+        "nutrition": "Budget: Mashed potatoes, boiled egg yolks, seasonal fruits. | Premium: Mashed avocado, pureed salmon.",
+        "challenges": "Sleep regression & Teething.",
         "tips": "Engage in floor play. Read board books together daily to boost cognitive skills."
     },
     2.0: {
-        "motor": "Running, climbing furniture. Activities: Chasing bubbles in the park, dancing to music (Free) or toddler gymnastics (Premium).",
-        "psycho": "Independence phase ('Terrible Twos'). They will say 'no' often to assert control.",
-        "nutrition": "Budget: Fava beans (well-mashed), cottage cheese, rice. | Premium: Lean beef meatballs, fresh berries.",
-        "challenges": "Problem: Severe temper tantrums. | Solution: Stay calm, ensure they are safe, and ignore the crying until they calm down.",
-        "tips": "It is very helpful to offer them simple choices (e.g., 'red shirt or blue shirt?') to satisfy their need for independence."
+        "expected_height": 87,
+        "experiences": "The 'Terrible Twos'. A huge explosion in vocabulary and a strong desire for independence. Emotions are very big and hard to control.",
+        "activities": "Finger painting, running in the park, simple puzzles, and dancing to songs.",
+        "nutrition": "Budget: Fava beans, cottage cheese, rice, small meatballs. | Premium: Lean beef, fresh berries.",
+        "challenges": "Severe temper tantrums and saying 'no' to everything.",
+        "tips": "Offer them simple choices (e.g., 'red shirt or blue shirt?') to satisfy their need for control."
     },
     3.0: {
-        "motor": "Riding a tricycle, jumping. Activities: Drawing with chalk on the sidewalk (Free) or swimming lessons (Premium).",
-        "psycho": "Imaginative play begins. Asks 'why' constantly.",
+        "expected_height": 95,
+        "experiences": "Imaginative play begins. They start making up stories, asking 'why' constantly, and learning to use the toilet independently.",
+        "activities": "Riding a tricycle, coloring with crayons, basic swimming water-play, and playing with clay.",
         "nutrition": "Budget: Boiled eggs, local yogurt, sweet potatoes. | Premium: Walnuts, fresh asparagus.",
-        "challenges": "Problem: Picky eating. | Solution: Do not force feed. Keep offering healthy options in fun shapes.",
-        "tips": "Encourage independent dressing. Answer their 'why' questions patiently to build curiosity."
+        "challenges": "Picky eating and fear of the dark.",
+        "tips": "Encourage independent dressing. Answer their 'why' questions patiently."
     },
     4.0: {
-        "motor": "Hopping on one foot, catching a bounced ball. Activities: Hide and seek, building forts (Free) or martial arts basics (Premium).",
-        "psycho": "Cooperative play with others. Distinguishing fantasy from reality.",
+        "expected_height": 103,
+        "experiences": "Cooperative play begins. They start making friends, sharing toys, and distinguishing fantasy from reality.",
+        "activities": "Gymnastics basics, drawing shapes, playground climbing, and hide-and-seek.",
         "nutrition": "Budget: Chickpeas, spinach, whole wheat pasta. | Premium: Baked salmon, quinoa.",
-        "challenges": "Problem: Testing boundaries. | Solution: Set clear, simple rules and follow through with logical consequences.",
-        "tips": "Teach them how to name their feelings (e.g., 'I see you are angry')."
+        "challenges": "Testing boundaries and occasional lying (fantasy vs reality).",
+        "tips": "Set clear, simple rules and follow through with logical consequences."
     },
     5.0: {
-        "motor": "Using a fork and spoon well, drawing a person. Activities: Helping with safe household chores (Free) or team sports (Premium).",
-        "psycho": "Wants to please friends, follows rules better.",
+        "expected_height": 110,
+        "experiences": "School readiness phase. They want to please friends, follow rules better, and show a strong desire to learn.",
+        "activities": "Swimming lessons, basic football, arts and crafts, and helping with simple house chores.",
         "nutrition": "Budget: Lentil soup, cheese sandwiches, carrots. | Premium: Lean turkey cuts, organic greens.",
-        "challenges": "Problem: Separation anxiety at school. | Solution: Make goodbyes quick and positive. Do not linger.",
+        "challenges": "Separation anxiety at school gates.",
         "tips": "Encourage them to tell stories to develop their vocabulary and confidence."
     },
     6.0: {
-        "motor": "Skipping, riding a bicycle without training wheels. Activities: Local park tag games (Free) or structured football/ballet (Premium).",
-        "psycho": "School transition. Strong desire to learn and show off new skills.",
+        "expected_height": 115,
+        "experiences": "First grade transition. Losing baby teeth. They are eager to show off new skills like reading and writing.",
+        "activities": "Cycling (without training wheels), team sports like football/ballet, and board games.",
         "nutrition": "Budget: Peanut butter, milk, roasted potatoes. | Premium: Almond butter, fresh fish.",
-        "challenges": "Problem: Backtalk and defiance. | Solution: Do not argue back. Set strict limits on disrespectful tone.",
+        "challenges": "Backtalk and defiance as they test new school behaviors at home.",
         "tips": "Praise their effort in schoolwork, not just the final grades."
     },
     7.0: {
-        "motor": "Tying shoelaces independently, better balance.",
-        "psycho": "Growing independence. Complains about fairness.",
+        "expected_height": 122,
+        "experiences": "Growing independence and a strong sense of fairness. They might complain if things feel 'unfair'. Logical thinking improves.",
+        "activities": "Martial arts (Karate/Taekwondo), reading storybooks, building complex Lego models.",
         "nutrition": "Budget: Whole wheat bread, white cheese, tomatoes. | Premium: Grilled salmon, mixed nuts.",
-        "challenges": "Problem: Fear of failure. | Solution: Share your own mistakes to show that failing is a normal part of learning.",
-        "tips": "Give them small daily responsibilities like setting the dinner table."
+        "challenges": "Fear of failure and perfectionism.",
+        "tips": "Share your own mistakes to show that failing is a normal part of learning."
     },
     8.0: {
-        "motor": "Fluid movements in sports, high physical confidence.",
-        "psycho": "Peer groups become very important. Likes group games.",
+        "expected_height": 128,
+        "experiences": "Peer groups become very important. They understand complex emotions and enjoy group games with rules.",
+        "activities": "Basketball, painting, swimming, and learning a musical instrument.",
         "nutrition": "Budget: Beans, rice, seasonal greens. | Premium: Grass-fed meat, pistachios.",
-        "challenges": "Problem: Screen time battles. | Solution: Create a 'screen-time contract'. Offer outdoor play as a better alternative.",
-        "tips": "Listen to their social dramas without always trying to 'fix' them."
+        "challenges": "Screen time battles and video game attachment.",
+        "tips": "Create a 'screen-time contract'. Offer outdoor play as a better alternative."
     },
     9.0: {
-        "motor": "Advanced hand-eye coordination. Great time for skill mastery.",
-        "psycho": "Peer pressure starts. Forming deeper, selective friendships.",
+        "expected_height": 133,
+        "experiences": "Forming deeper, selective friendships. They want to master skills and hobbies. Independence increases.",
+        "activities": "Robotics/coding for kids, advanced team sports, and scouting.",
         "nutrition": "Budget: Affordable dairy, boiled corn, lentils. | Premium: Greek yogurt, roasted duck.",
-        "challenges": "Problem: Dealing with bullies or mean behavior. | Solution: Keep open dialogue. Role-play how to respond to unkind peers.",
-        "tips": "Encourage reading non-fiction books about topics they love."
+        "challenges": "Dealing with bullies or mean behavior at school.",
+        "tips": "Keep open dialogue. Role-play how to respond to unkind peers."
     },
     10.0: {
-        "motor": "Stamina increases significantly.",
-        "psycho": "Approaching puberty. Seeking more privacy and independence.",
+        "expected_height": 138,
+        "experiences": "Approaching puberty. Seeking more privacy and showing early signs of physical changes. Friendships are crucial.",
+        "activities": "Track and field, advanced arts, drama clubs, and science experiments.",
         "nutrition": "Budget: Dark leafy greens, eggs, affordable fish. | Premium: Pecans, premium steak.",
-        "challenges": "Problem: Pre-puberty mood swings. | Solution: Show patience and respect their growing need for personal space.",
-        "tips": "Start having gentle, open conversations about body changes."
+        "challenges": "Pre-puberty mood swings.",
+        "tips": "Show patience and respect their growing need for personal space."
     },
     11.0: {
-        "motor": "Growth spurts start (especially for girls).",
-        "psycho": "Mood swings increase due to hormonal shifts.",
+        "expected_height": 144,
+        "experiences": "Puberty usually begins (especially for girls). Hormonal shifts cause mood swings. High awareness of body image.",
+        "activities": "Competitive sports, photography, writing, and tech hobbies.",
         "nutrition": "Budget: Spinach, local fruits, chicken liver. | Premium: Premium seafood, organic berries.",
-        "challenges": "Problem: Body image insecurities. | Solution: Focus conversations on health and strength, never on weight or appearance.",
-        "tips": "Validate their feelings even if they seem dramatic to you."
+        "challenges": "Body image insecurities.",
+        "tips": "Focus conversations on health and strength, never on weight or appearance."
     },
     12.0: {
-        "motor": "Growth spurts for boys, occasional clumsiness.",
-        "psycho": "Identity exploration. May challenge family rules.",
+        "expected_height": 150,
+        "experiences": "Identity exploration. Boys begin growth spurts. They may challenge family rules to assert their identity.",
+        "activities": "Football, swimming, creative writing, and learning a new language.",
         "nutrition": "Budget: Canned tuna, chickpeas, rice. | Premium: Mixed nuts, premium protein cuts.",
-        "challenges": "Problem: Rebellion against rules. | Solution: Start negotiating some rules with them to give them a sense of control.",
-        "tips": "Keep family dinners a priority to maintain connection."
+        "challenges": "Rebellion against rules.",
+        "tips": "Start negotiating some rules with them to give them a sense of control."
     },
     13.0: {
-        "motor": "Body changes become obvious, increased muscle mass.",
-        "psycho": "Teenage phase begins. High focus on peer acceptance.",
+        "expected_height": 156,
+        "experiences": "Teenage phase begins. High focus on peer acceptance, social media, and body changes. Increased muscle mass.",
+        "activities": "Gym/fitness basics, team sports, coding, and volunteering.",
         "nutrition": "Budget: Lentils, roasted chicken, whole grain bread. | Premium: Quinoa, fresh salmon.",
-        "challenges": "Problem: Late-night texting and sleep deprivation. | Solution: Establish tech-free zones, especially in bedrooms at night.",
-        "tips": "Respect their privacy, but stay involved in their life from a distance."
+        "challenges": "Late-night texting and sleep deprivation.",
+        "tips": "Establish tech-free zones, especially in bedrooms at night."
     },
     14.0: {
-        "motor": "High energy needs due to rapid maturation.",
-        "psycho": "Abstract thinking develops. Strong moral compass.",
+        "expected_height": 163,
+        "experiences": "Abstract thinking develops. Strong moral compass. High energy needs due to rapid maturation.",
+        "activities": "Specialized sports, arts, community service, and debate clubs.",
         "nutrition": "Budget: Legumes, eggs, pasta, local beef. | Premium: Extra virgin olive oil, premium steak.",
-        "challenges": "Problem: Academic stress and procrastination. | Solution: Help them break large tasks into small, manageable steps.",
-        "tips": "Encourage them to volunteer or help others to build empathy."
+        "challenges": "Academic stress and procrastination.",
+        "tips": "Help them break large tasks into small, manageable steps."
     },
     15.0: {
-        "motor": "Nearing adult height.",
-        "psycho": "Exploring romantic interests, planning for the future.",
+        "expected_height": 168,
+        "experiences": "Exploring romantic interests, planning for the future (high school paths). Nearing adult height.",
+        "activities": "Weight training, music, leadership programs, and part-time jobs (if applicable).",
         "nutrition": "Budget: Fava beans, local fruits, oats. | Premium: Protein smoothies, macadamia nuts.",
-        "challenges": "Problem: Social exclusion or drama. | Solution: Listen without judgment. Never minimize their feelings.",
+        "challenges": "Social exclusion or peer drama.",
         "tips": "Treat them more like young adults. Ask for their opinions on family matters."
     },
     16.0: {
-        "motor": "Reaching near adult physical maturity and strength.",
-        "psycho": "Stronger sense of self. Thinking about college or careers.",
+        "expected_height": 173,
+        "experiences": "Reaching near adult physical maturity. Stronger sense of self. Thinking heavily about college or careers.",
+        "activities": "Advanced hobbies, career-oriented workshops, driving (where applicable).",
         "nutrition": "Budget: Affordable poultry, eggs, seasonal vegetables. | Premium: Assorted premium nuts, seafood.",
-        "challenges": "Problem: Anxiety about the future. | Solution: Guide them gently without dictating their choices.",
+        "challenges": "Anxiety about the future and exams.",
         "tips": "Celebrate their independence and prepare them for real-world responsibilities."
     }
 }
@@ -122,30 +138,12 @@ development_data = {
 # 2. Vaccinations Data
 
 vaccine_data = {
-    "2 Months": {
-        "vaccines": "Hexavalent (DTP, Polio, Hep B, Hib), Rotavirus, Pneumococcal.",
-        "symptoms": "Mild fever, fussiness, sleepiness, slight redness or swelling at the injection site."
-    },
-    "4 Months": {
-        "vaccines": "Hexavalent, Rotavirus, Pneumococcal.",
-        "symptoms": "Similar to 2 months: Low-grade fever, irritability, decreased appetite for a day."
-    },
-    "6 Months": {
-        "vaccines": "Hexavalent, Polio drops, Pneumococcal.",
-        "symptoms": "Mild fever, crying more than usual, localized redness."
-    },
-    "9 Months": {
-        "vaccines": "Meningococcal, Polio drops.",
-        "symptoms": "Usually very mild. Slight fever or fatigue."
-    },
-    "12 Months": {
-        "vaccines": "MMR (Measles, Mumps, Rubella), Polio.",
-        "symptoms": "Fever or mild rash may appear 7-10 days AFTER the vaccine. Mild swelling of glands."
-    },
-    "18 Months": {
-        "vaccines": "Booster DTP, Polio, MMR booster.",
-        "symptoms": "Soreness in the arm/leg, fever, tiredness."
-    }
+    "2 Months": {"vaccines": "Hexavalent, Rotavirus, Pneumococcal.", "symptoms": "Mild fever, sleepiness, swelling at injection site."},
+    "4 Months": {"vaccines": "Hexavalent, Rotavirus, Pneumococcal.", "symptoms": "Low-grade fever, irritability, decreased appetite."},
+    "6 Months": {"vaccines": "Hexavalent, Polio drops, Pneumococcal.", "symptoms": "Mild fever, localized redness."},
+    "9 Months": {"vaccines": "Meningococcal, Polio drops.", "symptoms": "Usually very mild. Slight fever."},
+    "12 Months": {"vaccines": "MMR, Polio.", "symptoms": "Fever or mild rash 7-10 days AFTER vaccine."},
+    "18 Months": {"vaccines": "Booster DTP, Polio, MMR booster.", "symptoms": "Soreness, fever, tiredness."}
 }
 
 
@@ -155,104 +153,133 @@ def calculate_expected_weight(age_years):
     return (age_years * 2) + 8
 
 def check_weight_status(actual_weight, expected_weight):
-    if actual_weight < (expected_weight * 0.85):
-        return "Underweight", "⚠️"
-    elif actual_weight > (expected_weight * 1.20):
-        return "Overweight", "🔴"
-    else:
-        return "Normal Weight", "✅"
+    if actual_weight < (expected_weight * 0.85): return "Underweight", "⚠️"
+    elif actual_weight > (expected_weight * 1.20): return "Overweight", "🔴"
+    else: return "Normal Weight", "✅"
+
+def check_height_status(actual_height, expected_height):
+    if actual_height < (expected_height * 0.95): return "Shorter than average", "⬇️"
+    elif actual_height > (expected_height * 1.05): return "Taller than average", "⬆️"
+    else: return "Normal Height", "✅"
 
 
 # 4. Streamlit UI & Navigation
 
 st.set_page_config(page_title="Child Growth Tracker", page_icon="👶", layout="wide")
 
-# Sidebar - Family Info
-st.sidebar.image("https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400", use_container_width=True)
-st.sidebar.title("👨‍👩‍👦 Family Profile")
-father_name = st.sidebar.text_input("Father's Name:")
-mother_name = st.sidebar.text_input("Mother's Name:")
-child_name = st.sidebar.text_input("Child's Name:")
+# session state for persistent data
+if 'father_name' not in st.session_state: st.session_state.father_name = ""
+if 'mother_name' not in st.session_state: st.session_state.mother_name = ""
+if 'child_name' not in st.session_state: st.session_state.child_name = ""
 
 def get_parents_address():
-    if father_name and mother_name:
-        return f"{father_name} and {mother_name}"
-    elif father_name:
-        return father_name
-    elif mother_name:
-        return mother_name
-    else:
-        return "Parents"
+    f = st.session_state.father_name
+    m = st.session_state.mother_name
+    if f and m: return f"{f} and {m}"
+    elif f: return f
+    elif m: return m
+    else: return "Parents"
 
 def get_child_name():
-    return child_name if child_name else "your child"
+    c = st.session_state.child_name
+    return c if c else "your child"
 
-st.sidebar.markdown("---")
+# Sidebar Navigation
+st.sidebar.image("https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400", use_container_width=True)
 st.sidebar.title("📌 Menu")
-page = st.sidebar.radio("Go to:", ["📊 Growth & Vitals", "🍽️ Tips & Nutrition", "💉 Vaccinations"])
+page = st.sidebar.radio("Go to:", ["👤 Profile Setup", "📊 Growth & Vitals", "🏃 Activities & Milestones", "💉 Vaccinations"])
 
 
-# PAGE 1: Growth & Vitals
+# PAGE 1: Profile Setup
 
-if page == "📊 Growth & Vitals":
-    st.title("👶 Child Growth Tracker")
-    st.write(f"Welcome {get_parents_address()}! Let's check how {get_child_name()} is growing today.")
+if page == "👤 Profile Setup":
+    st.title("👤 Family Profile Setup")
+    st.write("Welcome! Please enter your details below. We will remember them as you navigate the app.")
     st.markdown("---")
     
     col1, col2 = st.columns(2)
     with col1:
+        st.session_state.father_name = st.text_input("Father's Name:", value=st.session_state.father_name)
+        st.session_state.mother_name = st.text_input("Mother's Name:", value=st.session_state.mother_name)
+    with col2:
+        st.session_state.child_name = st.text_input("Child's Name:", value=st.session_state.child_name)
+        
+    if st.session_state.father_name or st.session_state.mother_name or st.session_state.child_name:
+        st.success("Profile updated! You can now navigate to other pages from the menu on the left.")
+
+
+# PAGE 2: Growth & Vitals
+elif page == "📊 Growth & Vitals":
+    st.title("📊 Growth & Vitals Tracker")
+    st.write(f"Welcome {get_parents_address()}! Let's check {get_child_name()}'s physical growth.")
+    st.markdown("---")
+    
+    col1, col2, col3 = st.columns(3)
+    with col1:
         age = st.number_input("Child's Age (Years):", min_value=1.0, max_value=16.0, value=2.0, step=1.0)
     with col2:
-        actual_weight = st.number_input("Current Weight (kg):", min_value=0.0, max_value=120.0, value=0.0, step=0.5)
+        actual_weight = st.number_input("Current Weight (kg):", min_value=1.0, max_value=120.0, value=12.0, step=0.5)
+    with col3:
+        actual_height = st.number_input("Current Height (cm):", min_value=40.0, max_value=200.0, value=87.0, step=1.0)
 
     if st.button("Analyze Growth", type="primary"):
         expected_weight = calculate_expected_weight(age)
         
+        closest_age = round(age)
+        expected_height = development_data.get(closest_age, {}).get("expected_height", 100)
+        
         st.subheader(f"Results for {get_child_name()}")
         if age > 12:
-            st.warning("Note: Weight formulas vary heavily during teenage years due to growth spurts.")
+            st.warning("Note: Weight and height formulas vary heavily during teenage years due to growth spurts.")
             
-        st.info(f"⚖️ **Expected Ideal Weight:** ~{expected_weight} kg")
+        r_col1, r_col2 = st.columns(2)
         
-        if actual_weight > 0:
-            status, icon = check_weight_status(actual_weight, expected_weight)
-            st.metric(label="Weight Status", value=f"{icon} {status}", delta=f"{actual_weight - expected_weight:.1f} kg from ideal")
-            
-        closest_age = round(age)
-        if closest_age in development_data:
-            info = development_data[closest_age]
-            
-            st.markdown("### 🏃 Physical & Motor Skills")
-            st.write(info['motor'])
-            
-            st.markdown("### 🧠 Psychological State")
-            st.write(info['psycho'])
-            
-            st.error(f"⚠️ **Common Challenge:** {info['challenges']}")
-            st.success(f"💡 **Parenting Tip for {get_parents_address()}:** {info['tips']}")
+        # Weight Analysis
+        with r_col1:
+            st.info(f"⚖️ **Expected Ideal Weight:** ~{expected_weight} kg")
+            w_status, w_icon = check_weight_status(actual_weight, expected_weight)
+            st.metric(label="Weight Status", value=f"{w_icon} {w_status}", delta=f"{actual_weight - expected_weight:.1f} kg from ideal")
+        
+        # Height Analysis
+        with r_col2:
+            st.info(f"📏 **Expected Ideal Height:** ~{expected_height} cm")
+            h_status, h_icon = check_height_status(actual_height, expected_height)
+            st.metric(label="Height Status", value=f"{h_icon} {h_status}", delta=f"{actual_height - expected_height:.1f} cm from ideal")
 
 
-# PAGE 2: Tips & Nutrition
+# PAGE 3: Activities & Milestones
 
-elif page == "🍽️ Tips & Nutrition":
-    st.title("🍽️ Nutrition & Parenting Tips")
-    st.write(f"Dear {get_parents_address()}, select {get_child_name()}'s age to get inclusive dietary and parenting advice.")
+elif page == "🏃 Activities & Milestones":
+    st.title("🏃 Activities, Nutrition & Milestones")
+    st.write(f"Dear {get_parents_address()}, here is what to expect and how to support {get_child_name()} at this age.")
     
-    # Updated to show ages 1 to 16
     age_selection = st.selectbox("Select Age (Years):", [float(x) for x in range(1, 17)])
     
     if age_selection in development_data:
         info = development_data[age_selection]
         
-        st.subheader(f"Nutrition for a {int(age_selection)}-year-old")
-        st.info(f"🍎 **Dietary Options:**\n\n{info['nutrition']}")
+        st.markdown(f"### 🌟 What to Expect at Age {int(age_selection)}")
+        st.write(info['experiences'])
         
-        st.subheader("Parenting Advice")
-        st.warning(f"🛡️ **Challenge you might face:**\n\n{info['challenges']}")
-        st.success(f"💡 **How to support {get_child_name()}:**\n\n{info['tips']}")
+        st.markdown("---")
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.subheader("🎨 Recommended Activities")
+            st.success(info['activities'])
+            
+            st.subheader("🍎 Nutrition Options")
+            st.info(info['nutrition'])
+            
+        with col2:
+            st.subheader("🛡️ Common Challenge")
+            st.error(info['challenges'])
+            
+            st.subheader("💡 Parenting Advice")
+            st.warning(info['tips'])
 
 
-# PAGE 3: Vaccinations
+# PAGE 4: Vaccinations
 
 elif page == "💉 Vaccinations":
     st.title("💉 Vaccination Schedule & Care")
