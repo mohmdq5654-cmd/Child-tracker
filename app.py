@@ -1,14 +1,16 @@
+import streamlit as st
+
+
+
+
+
+
+
 st.sidebar.image("https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400", use_container_width=True)
 st.sidebar.title("📌 Menu")
 page = st.sidebar.radio("Go to:", ["📊 Growth & Vitals", "🍽️ Tips & Nutrition", "💉 Vaccinations"])
 st.sidebar.markdown("---")
 st.sidebar.info("Designed for monitoring child development and health milestones.")
-
-
-
-
-
-
 
 if page == "📊 Growth & Vitals":
     st.title("👶 Child Growth Tracker")
@@ -70,7 +72,7 @@ elif page == "💉 Vaccinations":
 
 
 
-import streamlit as st
+
 
 development_data = {
     1.0: {
