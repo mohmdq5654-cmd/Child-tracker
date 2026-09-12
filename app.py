@@ -183,7 +183,14 @@ vaccine_data = {
 # 3. Calculations
 
 def calculate_expected_weight(age_years):
-    return (age_years * 2) + 8
+    if age_years < 1.0:
+
+        age_months = age_years * 12
+        return round((age_months + 9) / 2, 1)
+    elif age_years <= 6.0:
+        return round((age_years * 2) + 8, 1)
+    else:
+        return round(((age_years * 7) - 5) / 2, 1)
 
 def check_weight_status(actual_weight, expected_weight):
     if actual_weight < (expected_weight * 0.85): return "Underweight", "⚠️"
@@ -195,6 +202,8 @@ def check_height_status(actual_height, expected_height):
     elif actual_height > (expected_height * 1.05): return "Taller than average", "⬆️"
     else: return "Normal Height", "✅"
 
+def calculate_daily_milk(weight_kg):
+    return round(weight_kg * 150)
 
 # 4. Streamlit UI & Navigation
 
@@ -245,28 +254,42 @@ if page == "👤 Profile Setup":
 elif page == "📊 Growth & Vitals":
     st.title("📊 Growth & Vitals Tracker")
     st.write(f"Welcome {get_parents_address()}! Let's check {get_child_name()}'s physical growth.")
+    st.info("Tip: For infants under 1 year, use decimals (e.g., 0.5 for 6 months, 0.8 for 9 months).")
     st.markdown("---")
     
     col1, col2, col3 = st.columns(3)
     with col1:
-        age = st.number_input("Child's Age (Years):", min_value=1.0, max_value=16.0, value=2.0, step=1.0)
+        age = st.number_input("Child's Age (Years):", min_value=0.1, max_value=16.0, value=1.0, step=0.1)
     with col2:
-        actual_weight = st.number_input("Current Weight (kg):", min_value=1.0, max_value=120.0, value=12.0, step=0.5)
+        actual_weight = st.number_input("Current Weight (kg):", min_value=1.0, max_value=120.0, value=10.0, step=0.5)
     with col3:
-        actual_height = st.number_input("Current Height (cm):", min_value=40.0, max_value=200.0, value=87.0, step=1.0)
+        actual_height = st.number_input("Current Height (cm):", min_value=30.0, max_value=200.0, value=75.0, step=1.0)
 
     if st.button("Analyze Growth", type="primary"):
         expected_weight = calculate_expected_weight(age)
-        
-        closest_age = round(age)
+        closest_age = round(age * 2) / 2 if age < 1 else round(age)
         expected_height = development_data.get(closest_age, {}).get("expected_height", 100)
         
         st.subheader(f"Results for {get_child_name()}")
+        
+        # Milk Calculator for Infants
+        if age < 1.0:
+            daily_milk = calculate_daily_milk(actual_weight if actual_weight > 0 else expected_weight)
+            feed_amount = round(daily_milk / 6)
+            st.success(f"🍼 **Infant Milk Requirement:** ~{daily_milk} ml per day (approx {feed_amount} ml every 4 hours).")
+
         if age > 12:
             st.warning("Note: Weight and height formulas vary heavily during teenage years due to growth spurts.")
             
         r_col1, r_col2 = st.columns(2)
-        
+        with r_col1:
+            st.info(f"⚖️ **Expected Ideal Weight:** ~{expected_weight} kg")
+            w_status, w_icon = check_weight_status(actual_weight, expected_weight)
+            st.metric(label="Weight Status", value=f"{w_icon} {w_status}", delta=f"{actual_weight - expected_weight:.1f} kg")
+        with r_col2:
+            st.info(f"📏 **Expected Ideal Height:** ~{expected_height} cm")
+            h_status, h_icon = check_height_status(actual_height, expected_height)
+            st.metric(label="Height Status", value=f"{h_icon} {h_status}", delta=f"{actual_height - expected_height:.1f} cm")
         # Weight Analysis
         with r_col1:
             st.info(f"⚖️ **Expected Ideal Weight:** ~{expected_weight} kg")
@@ -280,21 +303,21 @@ elif page == "📊 Growth & Vitals":
             st.metric(label="Height Status", value=f"{h_icon} {h_status}", delta=f"{actual_height - expected_height:.1f} cm from ideal")
 
 
-# PAGE 3: Activities & Milestones
 
-# ------------------------------------------
-# PAGE 3: Activities & Milestones
-# ------------------------------------------
+# PAGE 3: Activities & Milestones 
+
 elif page == "🏃 Activities & Milestones":
     st.title("🏃 Activities, Nutrition & Milestones")
     st.write(f"Dear {get_parents_address()}, here is what to expect and how to support {get_child_name()} at this age.")
     
-    age_selection = st.selectbox("Select Age (Years):", [float(x) for x in range(1, 17)])
+    # Generate age list including 0.5 (6 months)
+    age_options = [0.5] + [float(x) for x in range(1, 17)]
+    age_selection = st.selectbox("Select Age (Years):", age_options, format_func=lambda x: "Infant (6 Months)" if x == 0.5 else f"{int(x)} Years")
     
     if age_selection in development_data:
         info = development_data[age_selection]
         
-        st.markdown(f"### 🌟 What to Expect at Age {int(age_selection)}")
+        st.markdown(f"### 🌟 What to Expect")
         st.write(info['experiences'])
         st.markdown("---")
         
@@ -302,11 +325,26 @@ elif page == "🏃 Activities & Milestones":
         with col1:
             st.subheader("🎨 Recommended Activities")
             st.success(info['activities'])
+            with st.expander(f"📷 View Activity Inspiration for {get_child_name()}"):
+                if 'activity_image' in info:
+                    st.image(info['activity_image'], caption="Activity Idea", use_container_width=True)
             
-            st.subheader("🍎 Nutrition Options")
-            st.info(info['nutrition'])
+            st.subheader("🍎 Nutrition & Elements")
+            st.info(f"**Diet:** {info['nutrition']}\n\n**Key Elements Needed:** {info.get('nutritional_elements', 'Balanced diet essential for growth.')}")
+            with st.expander(f"🍳 View Preparation Method & Food Ideas"):
+                st.write(f"**How to prepare:** {info.get('prep_method', '')}")
+                if 'food_image' in info:
+                    st.image(info['food_image'], caption="Healthy Meal Inspiration", use_container_width=True)
+                
+        with col2:
+            st.subheader("🛡️ Common Challenge")
+            st.error(info['challenges'])
             
-            # This is the NEW part for the Image and Recipe
+            st.subheader("💡 Parenting Advice")
+            st.warning(info['tips'])
+
+
+             #Image and Recipe
             with st.expander(f"🍳 View Preparation Method & Food Ideas for {get_child_name()}"):
                 st.write(f"**How to prepare:** {info.get('prep_method', 'Prepare balanced meals with safe cuts.')}")
                 if 'food_image' in info:
