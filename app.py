@@ -3,28 +3,37 @@ import streamlit as st
 
 # 1. Comprehensive Developmental Data (Ages 1 to 16)
 
+# ==========================================
+# 1. Comprehensive Developmental Data (Ages 1 to 16)
+# ==========================================
 development_data = {
     1.0: {
         "expected_height": 75,
-        "experiences": "Transitioning from baby to toddler. Rapid physical growth and beginning to understand simple words. They are exploring their environment with all their senses.",
-        "activities": "Sensory play (water/sand), large building blocks, listening to music, and rolling a soft ball.",
+        "experiences": "Transitioning from baby to toddler. Rapid physical growth and beginning to understand simple words.",
+        "activities": "Sensory play (water/sand), large building blocks, listening to music.",
         "nutrition": "Budget: Mashed potatoes, boiled egg yolks, seasonal fruits. | Premium: Mashed avocado, pureed salmon.",
+        "prep_method": "Boil potatoes and eggs until very soft, mash with a fork adding a little water. For premium, steam salmon and blend with ripe avocado.",
+        "food_image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600",
         "challenges": "Sleep regression & Teething.",
         "tips": "Engage in floor play. Read board books together daily to boost cognitive skills."
     },
     2.0: {
         "expected_height": 87,
-        "experiences": "The 'Terrible Twos'. A huge explosion in vocabulary and a strong desire for independence. Emotions are very big and hard to control.",
-        "activities": "Finger painting, running in the park, simple puzzles, and dancing to songs.",
+        "experiences": "The 'Terrible Twos'. A huge explosion in vocabulary and a strong desire for independence.",
+        "activities": "Finger painting, running in the park, simple puzzles, and dancing.",
         "nutrition": "Budget: Fava beans, cottage cheese, rice, small meatballs. | Premium: Lean beef, fresh berries.",
+        "prep_method": "Mash fava beans well with a drop of olive oil. Roll lean ground beef into very small, bite-sized meatballs and bake until soft.",
+        "food_image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600",
         "challenges": "Severe temper tantrums and saying 'no' to everything.",
         "tips": "Offer them simple choices (e.g., 'red shirt or blue shirt?') to satisfy their need for control."
     },
     3.0: {
         "expected_height": 95,
-        "experiences": "Imaginative play begins. They start making up stories, asking 'why' constantly, and learning to use the toilet independently.",
-        "activities": "Riding a tricycle, coloring with crayons, basic swimming water-play, and playing with clay.",
+        "experiences": "Imaginative play begins. They start making up stories, asking 'why' constantly, and toilet training.",
+        "activities": "Riding a tricycle, coloring with crayons, basic swimming water-play.",
         "nutrition": "Budget: Boiled eggs, local yogurt, sweet potatoes. | Premium: Walnuts, fresh asparagus.",
+        "prep_method": "Bake sweet potatoes until very soft, serve with plain yogurt. Hard-boil eggs and slice them thinly to prevent choking.",
+        "food_image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600",
         "challenges": "Picky eating and fear of the dark.",
         "tips": "Encourage independent dressing. Answer their 'why' questions patiently."
     },
@@ -33,30 +42,38 @@ development_data = {
         "experiences": "Cooperative play begins. They start making friends, sharing toys, and distinguishing fantasy from reality.",
         "activities": "Gymnastics basics, drawing shapes, playground climbing, and hide-and-seek.",
         "nutrition": "Budget: Chickpeas, spinach, whole wheat pasta. | Premium: Baked salmon, quinoa.",
+        "prep_method": "Boil whole wheat pasta and mix with finely chopped spinach and a little cheese. Roast chickpeas lightly.",
+        "food_image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600",
         "challenges": "Testing boundaries and occasional lying (fantasy vs reality).",
         "tips": "Set clear, simple rules and follow through with logical consequences."
     },
     5.0: {
         "expected_height": 110,
-        "experiences": "School readiness phase. They want to please friends, follow rules better, and show a strong desire to learn.",
-        "activities": "Swimming lessons, basic football, arts and crafts, and helping with simple house chores.",
+        "experiences": "School readiness phase. They want to please friends, follow rules better, and show a desire to learn.",
+        "activities": "Swimming lessons, basic football, arts and crafts, and helping with chores.",
         "nutrition": "Budget: Lentil soup, cheese sandwiches, carrots. | Premium: Lean turkey cuts, organic greens.",
+        "prep_method": "Cook red lentils with carrots and onions, blend into a smooth soup. Cut cheese sandwiches into fun shapes.",
+        "food_image": "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600",
         "challenges": "Separation anxiety at school gates.",
         "tips": "Encourage them to tell stories to develop their vocabulary and confidence."
     },
     6.0: {
         "expected_height": 115,
-        "experiences": "First grade transition. Losing baby teeth. They are eager to show off new skills like reading and writing.",
-        "activities": "Cycling (without training wheels), team sports like football/ballet, and board games.",
+        "experiences": "First grade transition. Losing baby teeth. Eager to show off new skills like reading and writing.",
+        "activities": "Cycling (without training wheels), team sports, and board games.",
         "nutrition": "Budget: Peanut butter, milk, roasted potatoes. | Premium: Almond butter, fresh fish.",
-        "challenges": "Backtalk and defiance as they test new school behaviors at home.",
+        "prep_method": "Spread peanut butter on whole wheat toast. Bake fish in the oven with a dash of lemon and olive oil.",
+        "food_image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600",
+        "challenges": "Backtalk and defiance as they test new behaviors at home.",
         "tips": "Praise their effort in schoolwork, not just the final grades."
     },
     7.0: {
         "expected_height": 122,
-        "experiences": "Growing independence and a strong sense of fairness. They might complain if things feel 'unfair'. Logical thinking improves.",
-        "activities": "Martial arts (Karate/Taekwondo), reading storybooks, building complex Lego models.",
+        "experiences": "Growing independence and a strong sense of fairness. Logical thinking improves.",
+        "activities": "Martial arts (Karate/Taekwondo), reading storybooks, building Lego.",
         "nutrition": "Budget: Whole wheat bread, white cheese, tomatoes. | Premium: Grilled salmon, mixed nuts.",
+        "prep_method": "Grill salmon lightly. Serve cheese and tomatoes cut into small, easy-to-eat cubes alongside whole wheat bread.",
+        "food_image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600",
         "challenges": "Fear of failure and perfectionism.",
         "tips": "Share your own mistakes to show that failing is a normal part of learning."
     },
@@ -64,23 +81,29 @@ development_data = {
         "expected_height": 128,
         "experiences": "Peer groups become very important. They understand complex emotions and enjoy group games with rules.",
         "activities": "Basketball, painting, swimming, and learning a musical instrument.",
-        "nutrition": "Budget: Beans, rice, seasonal greens. | Premium: Grass-fed meat, pistachios.",
+        "nutrition": "Budget: Beans, rice, seasonal greens. | Premium: Grass-fed beef, pistachios.",
+        "prep_method": "Cook rice with mixed vegetables for extra nutrients. Stir-fry beef strips with colorful bell peppers.",
+        "food_image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600",
         "challenges": "Screen time battles and video game attachment.",
         "tips": "Create a 'screen-time contract'. Offer outdoor play as a better alternative."
     },
     9.0: {
         "expected_height": 133,
-        "experiences": "Forming deeper, selective friendships. They want to master skills and hobbies. Independence increases.",
-        "activities": "Robotics/coding for kids, advanced team sports, and scouting.",
-        "nutrition": "Budget: Affordable dairy, boiled corn, lentils. | Premium: Greek yogurt, roasted duck.",
+        "experiences": "Forming deeper, selective friendships. They want to master skills and hobbies.",
+        "activities": "Robotics/coding basics, advanced team sports, and scouting.",
+        "nutrition": "Budget: Affordable dairy, boiled corn, lentils. | Premium: Greek yogurt, roasted chicken.",
+        "prep_method": "Boil sweet corn and serve as a healthy snack. Mix Greek yogurt with honey and fresh fruits.",
+        "food_image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600",
         "challenges": "Dealing with bullies or mean behavior at school.",
         "tips": "Keep open dialogue. Role-play how to respond to unkind peers."
     },
     10.0: {
         "expected_height": 138,
-        "experiences": "Approaching puberty. Seeking more privacy and showing early signs of physical changes. Friendships are crucial.",
+        "experiences": "Approaching puberty. Seeking more privacy and showing early signs of physical changes.",
         "activities": "Track and field, advanced arts, drama clubs, and science experiments.",
         "nutrition": "Budget: Dark leafy greens, eggs, affordable fish. | Premium: Pecans, premium steak.",
+        "prep_method": "Scramble eggs with chopped spinach. Grill steak and serve with a side of sweet potato mash.",
+        "food_image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600",
         "challenges": "Pre-puberty mood swings.",
         "tips": "Show patience and respect their growing need for personal space."
     },
@@ -89,38 +112,48 @@ development_data = {
         "experiences": "Puberty usually begins (especially for girls). Hormonal shifts cause mood swings. High awareness of body image.",
         "activities": "Competitive sports, photography, writing, and tech hobbies.",
         "nutrition": "Budget: Spinach, local fruits, chicken liver. | Premium: Premium seafood, organic berries.",
+        "prep_method": "Sauté chicken liver with onions and garlic. Steam mixed seafood with herbs for a clean protein boost.",
+        "food_image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600",
         "challenges": "Body image insecurities.",
         "tips": "Focus conversations on health and strength, never on weight or appearance."
     },
     12.0: {
         "expected_height": 150,
-        "experiences": "Identity exploration. Boys begin growth spurts. They may challenge family rules to assert their identity.",
+        "experiences": "Identity exploration. Boys begin growth spurts. They may challenge family rules.",
         "activities": "Football, swimming, creative writing, and learning a new language.",
         "nutrition": "Budget: Canned tuna, chickpeas, rice. | Premium: Mixed nuts, premium protein cuts.",
+        "prep_method": "Make a healthy tuna salad by mixing canned tuna, chickpeas, a squeeze of lemon, and a drizzle of olive oil.",
+        "food_image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600",
         "challenges": "Rebellion against rules.",
         "tips": "Start negotiating some rules with them to give them a sense of control."
     },
     13.0: {
         "expected_height": 156,
-        "experiences": "Teenage phase begins. High focus on peer acceptance, social media, and body changes. Increased muscle mass.",
+        "experiences": "Teenage phase begins. High focus on peer acceptance, social media, and body changes.",
         "activities": "Gym/fitness basics, team sports, coding, and volunteering.",
         "nutrition": "Budget: Lentils, roasted chicken, whole grain bread. | Premium: Quinoa, fresh salmon.",
+        "prep_method": "Roast chicken with root vegetables (potatoes, carrots) in the oven. Boil quinoa in vegetable broth.",
+        "food_image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600",
         "challenges": "Late-night texting and sleep deprivation.",
         "tips": "Establish tech-free zones, especially in bedrooms at night."
     },
     14.0: {
         "expected_height": 163,
         "experiences": "Abstract thinking develops. Strong moral compass. High energy needs due to rapid maturation.",
-        "activities": "Specialized sports, arts, community service, and debate clubs.",
+        "activities": "Specialized sports, debate clubs, community service.",
         "nutrition": "Budget: Legumes, eggs, pasta, local beef. | Premium: Extra virgin olive oil, premium steak.",
+        "prep_method": "Toss whole wheat pasta with olive oil, garlic, cherry tomatoes, and a little parmesan cheese.",
+        "food_image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600",
         "challenges": "Academic stress and procrastination.",
         "tips": "Help them break large tasks into small, manageable steps."
     },
     15.0: {
         "expected_height": 168,
         "experiences": "Exploring romantic interests, planning for the future (high school paths). Nearing adult height.",
-        "activities": "Weight training, music, leadership programs, and part-time jobs (if applicable).",
+        "activities": "Weight training, music, leadership programs, and part-time jobs.",
         "nutrition": "Budget: Fava beans, local fruits, oats. | Premium: Protein smoothies, macadamia nuts.",
+        "prep_method": "Blend oats, milk, bananas, and a spoonful of peanut butter for a quick, high-energy morning smoothie.",
+        "food_image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600",
         "challenges": "Social exclusion or peer drama.",
         "tips": "Treat them more like young adults. Ask for their opinions on family matters."
     },
@@ -129,12 +162,12 @@ development_data = {
         "experiences": "Reaching near adult physical maturity. Stronger sense of self. Thinking heavily about college or careers.",
         "activities": "Advanced hobbies, career-oriented workshops, driving (where applicable).",
         "nutrition": "Budget: Affordable poultry, eggs, seasonal vegetables. | Premium: Assorted premium nuts, seafood.",
+        "prep_method": "Grill chicken breast and serve with a large mixed salad. Teach them how to prepare their own healthy meals.",
+        "food_image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600",
         "challenges": "Anxiety about the future and exams.",
         "tips": "Celebrate their independence and prepare them for real-world responsibilities."
     }
 }
-
-
 # 2. Vaccinations Data
 
 vaccine_data = {
@@ -249,6 +282,9 @@ elif page == "📊 Growth & Vitals":
 
 # PAGE 3: Activities & Milestones
 
+# ------------------------------------------
+# PAGE 3: Activities & Milestones
+# ------------------------------------------
 elif page == "🏃 Activities & Milestones":
     st.title("🏃 Activities, Nutrition & Milestones")
     st.write(f"Dear {get_parents_address()}, here is what to expect and how to support {get_child_name()} at this age.")
@@ -260,10 +296,9 @@ elif page == "🏃 Activities & Milestones":
         
         st.markdown(f"### 🌟 What to Expect at Age {int(age_selection)}")
         st.write(info['experiences'])
-        
         st.markdown("---")
-        col1, col2 = st.columns(2)
         
+        col1, col2 = st.columns(2)
         with col1:
             st.subheader("🎨 Recommended Activities")
             st.success(info['activities'])
@@ -271,14 +306,18 @@ elif page == "🏃 Activities & Milestones":
             st.subheader("🍎 Nutrition Options")
             st.info(info['nutrition'])
             
+            # This is the NEW part for the Image and Recipe
+            with st.expander(f"🍳 View Preparation Method & Food Ideas for {get_child_name()}"):
+                st.write(f"**How to prepare:** {info.get('prep_method', 'Prepare balanced meals with safe cuts.')}")
+                if 'food_image' in info:
+                    st.image(info['food_image'], caption="Healthy Meal Inspiration", use_container_width=True)
+                
         with col2:
             st.subheader("🛡️ Common Challenge")
             st.error(info['challenges'])
             
             st.subheader("💡 Parenting Advice")
             st.warning(info['tips'])
-
-
 # PAGE 4: Vaccinations
 
 elif page == "💉 Vaccinations":
