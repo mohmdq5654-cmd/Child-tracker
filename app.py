@@ -140,7 +140,7 @@ development_data = {
         "challenges": "Obstacle: Testing boundaries, occasional lying.",
         "tips": "How to overcome: Set clear rules with logical consequences."
     },
-    # Copying the detailed pattern for ages 5 to 16 to ensure completeness
+
     **{age: {
         "expected_height": 110 + int((age-5)*5.5),
         "experiences": "School focus, growing independence, peer social development.",
@@ -160,7 +160,7 @@ development_data = {
     } for age in range(5, 17)}
 }
 
-# Add special overriding data for Puberty/Teens (Age 13) to highlight Clinical Nutrition needs
+
 development_data[13.0] = {
     "expected_height": 156,
     "experiences": "Teenage phase, peer acceptance focus, growth spurts.",
@@ -176,7 +176,7 @@ development_data[13.0] = {
     "prep_method": "Roast vegetables to enhance flavor. Blend avocado with cocoa powder and honey for a healthy, high-fat chocolate mousse.",
     "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Quinoa+&+Salmon+Bowl",
     "challenges": "Obstacle: Late-night texting, sleep deprivation.",
-    "tips": "How to overcome: Establish tech-free zones in bedrooms at night."
+    "tips": "How to overcome: Establish tech-free zones in bedrooms at night."}
 }
 
 # 2. Vaccinations Data
