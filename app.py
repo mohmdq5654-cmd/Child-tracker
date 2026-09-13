@@ -215,30 +215,30 @@ def calculate_daily_milk(weight_kg):
     return round(weight_kg * 150)
 
 
-# 4. Streamlit Configuration & State
+#  Streamlit Configuration & State
 
 st.set_page_config(page_title="Child Growth Tracker", page_icon="👶", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS
+# Custom CSS 
 st.markdown("""
 <style>
     /* Hide the sidebar */
     [data-testid="collapsedControl"] { display: none; }
     [data-testid="stSidebar"] { display: none; }
     
-    /* CSS for the Wheel Buttons */
+    /* CSS for the Rotating Wheel Buttons */
     .wheel-btn button {
-        width: 200px !important;
-        height: 200px !important;
+        width: 170px !important;
+        height: 170px !important;
         border-radius: 50% !important;
-        border: 4px solid #4CAF50 !important;
-        font-size: 22px !important;
+        border: 6px dashed #4CAF50 !important; /* إطار منقط عشان يبين لفة العجلة */
+        font-size: 20px !important;
         font-weight: bold !important;
         background-color: #ffffff !important;
         color: #333333 !important;
         box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1) !important;
-        transition: all 0.3s ease 0s !important;
-        margin: 10px auto !important;
+        transition: transform 0.8s ease-in-out, background-color 0.4s, color 0.4s !important; /* حركة الدوران */
+        margin: 0 auto !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
@@ -247,20 +247,16 @@ st.markdown("""
     .wheel-btn button:hover {
         background-color: #4CAF50 !important;
         color: #ffffff !important;
-        transform: translateY(-7px) scale(1.05) !important;
+        transform: rotate(360deg) scale(1.1) !important; /* لفة كاملة 360 درجة */
         box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4) !important;
+    }
+    .center-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
 """, unsafe_allow_html=True)
-
-#  Session State
-if 'page_state' not in st.session_state: st.session_state.page_state = "Setup"
-if 'parent_name' not in st.session_state: st.session_state.parent_name = ""
-if 'child_name' not in st.session_state: st.session_state.child_name = ""
-
-def navigate(page_name):
-    st.session_state.page_state = page_name
-
 
 # 5. Routing Logic (The App Flow)
 
@@ -284,32 +280,38 @@ if st.session_state.page_state == "Setup":
             st.error("Please enter both names to continue.")
 
 #  MAIN WHEEL 
+
 elif st.session_state.page_state == "Wheel":
     st.markdown(f"<h1 style='text-align: center; color: #4CAF50;'>👋 Welcome {st.session_state.parent_name} & Baby {st.session_state.child_name}! 🌟</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center;'>Choose an option from the wheel below:</h3><br><br>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>Hover over the wheels below to spin them and choose your path!</h3><br>", unsafe_allow_html=True)
     
-    # 2x2 Grid for the "Wheel" layout
-    col1, col2, col3, col4 = st.columns([1, 2, 2, 1])
     
-    with col2:
-        st.markdown('<div class="wheel-btn">', unsafe_allow_html=True)
+    t1, t2, t3 = st.columns([1, 1, 1])
+    with t2:
+        st.markdown('<div class="wheel-btn center-div">', unsafe_allow_html=True)
         st.button("📊\nGrowth & Vitals", on_click=navigate, args=("Growth",), key="btn_growth")
         st.markdown('</div>', unsafe_allow_html=True)
         
-        st.markdown('<div class="wheel-btn">', unsafe_allow_html=True)
+    st.write("") 
+        
+    m1, m2, m3 = st.columns([1, 0.2, 1])
+    with m1:
+        st.markdown('<div class="wheel-btn" style="float: right;">', unsafe_allow_html=True)
+        st.button("🏃\nDiet & Activities", on_click=navigate, args=("Activities",), key="btn_act")
+        st.markdown('</div>', unsafe_allow_html=True)
+    with m3:
+        st.markdown('<div class="wheel-btn" style="float: left;">', unsafe_allow_html=True)
         st.button("💉\nVaccinations", on_click=navigate, args=("Vaccinations",), key="btn_vax")
         st.markdown('</div>', unsafe_allow_html=True)
         
-    with col3:
-        st.markdown('<div class="wheel-btn">', unsafe_allow_html=True)
-        st.button("🏃\nDiet & Activities", on_click=navigate, args=("Activities",), key="btn_act")
-        st.markdown('</div>', unsafe_allow_html=True)
+    st.write("")
         
-        st.markdown('<div class="wheel-btn">', unsafe_allow_html=True)
+    b1, b2, b3 = st.columns([1, 1, 1])
+    with b2:
+        st.markdown('<div class="wheel-btn center-div">', unsafe_allow_html=True)
         st.button("👤\nEdit Profile", on_click=navigate, args=("Setup",), key="btn_prof")
         st.markdown('</div>', unsafe_allow_html=True)
-
-# --- PAGE 3: GROWTH & VITALS ---
+#  GROWTH & VITALS 
 elif st.session_state.page_state == "Growth":
     st.button("🔙 Back to Main Wheel", on_click=navigate, args=("Wheel",))
     st.markdown("---")
