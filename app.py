@@ -180,7 +180,7 @@ development_data[13.0] = {
 
 # 2. Vaccinations Data
 
-Vaccine_data = {
+vaccine_data = {
     "At Birth (0-1 Month)": {
         "vaccines": "BCG (Tuberculosis), Hepatitis B (1st dose), OPV (Oral Polio - Zero dose).", 
         "symptoms": "Mild fever. A small red pimple/scar will form at the BCG injection site (usually left arm) after a few weeks, which is normal."
@@ -191,6 +191,7 @@ Vaccine_data = {
     "9 Months": {"vaccines": "Meningococcal, Polio drops.", "symptoms": "Usually very mild. Slight fever."},
     "12 Months": {"vaccines": "MMR, Polio.", "symptoms": "Fever or mild rash 7-10 days AFTER vaccine."},
     "18 Months": {"vaccines": "Booster DTP, Polio, MMR booster.", "symptoms": "Soreness, fever, tiredness."}
+}
 
 # 3. Calculations
 
