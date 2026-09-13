@@ -160,7 +160,6 @@ development_data = {
     } for age in range(5, 17)}
 }
 
-
 development_data[13.0] = {
     "expected_height": 156,
     "experiences": "Teenage phase, peer acceptance focus, growth spurts.",
@@ -176,7 +175,7 @@ development_data[13.0] = {
     "prep_method": "Roast vegetables to enhance flavor. Blend avocado with cocoa powder and honey for a healthy, high-fat chocolate mousse.",
     "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Quinoa+&+Salmon+Bowl",
     "challenges": "Obstacle: Late-night texting, sleep deprivation.",
-    "tips": "How to overcome: Establish tech-free zones in bedrooms at night." }
+    "tips": "How to overcome: Establish tech-free zones in bedrooms at night."
 }
 
 # 2. Vaccinations Data
