@@ -650,7 +650,7 @@ elif st.session_state.page_state == "Wheel":
         st.button("👤\nEdit Profile", on_click=navigate, args=("Setup",), key="btn_prof")
         st.markdown('</div>', unsafe_allow_html=True)
 
-GROWTH & VITALS ---
+#GROWTH & VITALS
 elif st.session_state.page_state == "Growth":
     st.button("🔙 Back to Main Wheel", on_click=navigate, args=("Wheel",))
     st.markdown("---")
