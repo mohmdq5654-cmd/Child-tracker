@@ -383,13 +383,11 @@ elif page == "📊 Growth & Vitals":
 
 
 # PAGE 3: Activities & Milestones 
-
 elif page == "🏃 Activities & Milestones":
     st.title("🏃 Activities, Nutrition & Milestones")
     st.write(f"Dear {get_parents_address()}, here is what to expect and how to support {get_child_name()} at this age.")
     
-    # Generate age list including 0.5 (6 months)
-  
+    # Generate age list including 0.25 (3 months) up to 16 years
     age_options = [0.25, 0.33, 0.5, 0.75] + [float(x) for x in range(1, 17)]
     
     def format_age_label(x):
@@ -404,11 +402,12 @@ elif page == "🏃 Activities & Milestones":
     if age_selection in development_data:
         info = development_data[age_selection]
         
-        st.markdown(f"### 🌟 What to Expect")
+        st.markdown("### 🌟 What to Expect")
         st.write(info['experiences'])
         st.markdown("---")
         
         col1, col2 = st.columns(2)
+        
         with col1:
             st.subheader("🎨 Recommended Activities")
             st.success(info['activities'])
@@ -418,12 +417,12 @@ elif page == "🏃 Activities & Milestones":
             
             st.subheader("🍎 Nutrition & Elements")
             st.info(f"**Diet:** {info['nutrition']}\n\n**Key Elements Needed:** {info.get('nutritional_elements', 'Balanced diet essential for growth.')}")
-            with st.expander(f"🍳 View Preparation Method & Food Ideas"):
+            with st.expander("🍳 View Preparation Method & Food Ideas"):
                 st.write(f"**How to prepare:** {info.get('prep_method', '')}")
                 if 'food_image' in info:
                     st.image(info['food_image'], caption="Healthy Meal Inspiration", use_container_width=True)
                 
-       with col2:
+        with col2:
             st.subheader("🚧 Obstacles & Challenges")
             st.error(info['challenges'])
             
