@@ -1,181 +1,450 @@
 import streamlit as st
 
 
-# 1. Comprehensive Developmental Data (Ages 0.25 to 16)
+# 1. Comprehensive Developmental Data 
+
 
 development_data = {
-    0.25: {
-        "expected_height": 61,
-        "experiences": "Beginning to smile, holding head up briefly, tracking objects.",
-        "activities": "Tummy time on a soft mat, dangling colorful toys, singing.",
-        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Tummy+Time+(3+Months)",
-        "daily_calories": "400 - 500 kcal",
+    #  INFANTS 
+    "1 Month": {
+        "expected_height": 54,
+        "experiences": "Adapting to the world, recognizing parents' voices, keeping hands in tight fists.",
+        "activities": "High-contrast (black and white) cards, gentle singing, tummy time on chest.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+High-Contrast+Cards",
+        "daily_calories": "400 - 450 kcal",
         "breakfast": "1. Formula Milk\n2. Breastmilk\n3. Milk via Newborn Bottle",
         "meals": "1. Formula Milk\n2. Breastmilk\n3. Milk via Newborn Bottle",
         "snacks": "1. No solids yet\n2. No solids yet\n3. No solids yet",
         "sweets": "1. Strictly prohibited\n2. Strictly prohibited\n3. Strictly prohibited",
         "juices": "1. Milk only\n2. Milk only\n3. Milk only",
-        "nutritional_elements": "Lactose for energy, Milk fats for brain, Vitamin D drops.",
-        "prep_method": "Prepare formula using sterilized warm water strictly to manufacturer instructions. No added water or solids.",
+        "nutritional_elements": "Lactose, Milk fats, Vitamin D drops.",
+        "prep_method": "Prepare formula using sterilized warm water. Strictly milk only.",
         "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Newborn+Feeding+Bottle",
-        "challenges": "Obstacle: Night waking and day/night confusion.",
+        "challenges": "Obstacle: Day/night confusion.",
         "tips": "How to overcome: Keep lights dim and voices low during night feeds."
     },
-    0.33: {
-        "expected_height": 64,
-        "experiences": "Holding head steady, smiling spontaneously, reaching for toys.",
-        "activities": "Sitting with support, playing with rattles, interactive mirroring.",
-        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Playing+with+Rattles+(4+Months)",
-        "daily_calories": "500 - 600 kcal",
+    "2 Months": {
+        "expected_height": 58,
+        "experiences": "First social smiles, cooing sounds, following objects with eyes.",
+        "activities": "Tummy time on a play mat, colorful dangling toys.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Tummy+Time",
+        "daily_calories": "450 - 500 kcal",
         "breakfast": "1. Formula Milk\n2. Breastmilk\n3. Milk via Anti-colic Bottle",
         "meals": "1. Formula Milk\n2. Breastmilk\n3. Milk via Anti-colic Bottle",
-        "snacks": "1. No solids yet\n2. No solids yet\n3. No solids yet",
+        "snacks": "1. No solids\n2. No solids\n3. No solids",
         "sweets": "1. Strictly prohibited\n2. Strictly prohibited\n3. Strictly prohibited",
         "juices": "1. Milk only\n2. Milk only\n3. Milk only",
         "nutritional_elements": "Proteins, lactose, balanced vitamins.",
-        "prep_method": "Mix formula gently to avoid creating air bubbles. Keep everything strictly milk-based.",
+        "prep_method": "Ensure bottle is angled to keep the nipple full of milk to reduce gas.",
         "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Anti-Colic+Bottle",
-        "challenges": "Obstacle: The 4-month sleep regression.",
-        "tips": "How to overcome: Stick to a consistent bedtime routine. Be patient."
+        "challenges": "Obstacle: Evening fussiness (witching hour).",
+        "tips": "How to overcome: Use gentle rocking, swaddling, and white noise."
     },
-    0.5: {
+    "3 Months": {
+        "expected_height": 61,
+        "experiences": "Holding head up well, discovering hands, laughing.",
+        "activities": "Soft rattles, mimicking baby's sounds, gentle massage.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Soft+Rattles",
+        "daily_calories": "500 - 550 kcal",
+        "breakfast": "1. Formula Milk\n2. Breastmilk\n3. Milk via Bottle",
+        "meals": "1. Formula Milk\n2. Breastmilk\n3. Milk via Bottle",
+        "snacks": "1. No solids\n2. No solids\n3. No solids",
+        "sweets": "1. Strictly prohibited\n2. Strictly prohibited\n3. Strictly prohibited",
+        "juices": "1. Milk only\n2. Milk only\n3. Milk only",
+        "nutritional_elements": "Calcium, healthy fats for brain development.",
+        "prep_method": "Keep feeding environment calm. No solids before 4-6 months.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Milk+Bottle",
+        "challenges": "Obstacle: Distracted eating.",
+        "tips": "How to overcome: Feed in a quiet, dimly lit room."
+    },
+    "4 Months": {
+        "expected_height": 64,
+        "experiences": "Rolling from tummy to back, grasping objects, mimicking facial expressions.",
+        "activities": "Mirror play, reading large-picture books.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Mirror+Play",
+        "daily_calories": "550 - 600 kcal",
+        "breakfast": "1. Formula Milk\n2. Breastmilk\n3. Milk via Bottle",
+        "meals": "1. Formula Milk\n2. Breastmilk\n3. Milk via Bottle",
+        "snacks": "1. No solids\n2. No solids\n3. No solids",
+        "sweets": "1. Strictly prohibited\n2. Strictly prohibited\n3. Strictly prohibited",
+        "juices": "1. Milk only\n2. Milk only\n3. Milk only",
+        "nutritional_elements": "Iron stores start depleting; rely on fortified formula/breastmilk.",
+        "prep_method": "Continue exclusive milk feeding unless pediatrician advises starting purees.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Milk+Bottle",
+        "challenges": "Obstacle: 4-month sleep regression.",
+        "tips": "How to overcome: Establish strong sleep associations (bath, book, bed)."
+    },
+    "5 Months": {
+        "expected_height": 66,
+        "experiences": "Sitting with support, moving objects from hand to hand.",
+        "activities": "Textured fabric books, singing nursery rhymes.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Textured+Books",
+        "daily_calories": "550 - 650 kcal",
+        "breakfast": "1. Formula Milk\n2. Breastmilk\n3. Milk via Bottle",
+        "meals": "1. Formula Milk\n2. Breastmilk\n3. Early tasting of single puree (if advised)",
+        "snacks": "1. No solids\n2. No solids\n3. No solids",
+        "sweets": "1. Strictly prohibited\n2. Strictly prohibited\n3. Strictly prohibited",
+        "juices": "1. Milk only\n2. Milk only\n3. Milk only",
+        "nutritional_elements": "Zinc, Vitamin D, Fats.",
+        "prep_method": "If starting purees, boil zucchini/carrots without salt and blend into a very watery liquid.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Training+Bottle",
+        "challenges": "Obstacle: Early teething signs (drooling, biting).",
+        "tips": "How to overcome: Offer a clean, cold washcloth to chew on."
+    },
+    "6 Months": {
         "expected_height": 68,
-        "experiences": "Rolling over, sitting without support, babbling.",
+        "experiences": "Sitting without support, responding to name, early consonant babbling.",
         "activities": "Reaching for toys, water play during bath time.",
-        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Sitting+&+Reaching+(6+Months)",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Sitting+&+Reaching",
         "daily_calories": "600 - 650 kcal",
-        "breakfast": "1. Apple puree\n2. Pear puree\n3. Mashed banana with milk",
-        "meals": "1. Zucchini puree\n2. Carrot puree\n3. Sweet potato mash",
-        "snacks": "1. Milk feed\n2. Cucumber stick (for teething gnawing)\n3. Soft avocado mash",
-        "sweets": "1. Mashed natural dates (tiny amount)\n2. Baked apple puree\n3. Mashed sweet potato",
-        "juices": "1. Milk\n2. Small sips of boiled/cooled water\n3. Very diluted, unsweetened chamomile tea",
-        "nutritional_elements": "Iron (crucial at this age), Zinc, Vitamin D.",
-        "prep_method": "Steam vegetables/fruits without salt or sugar. Blend into a very runny puree using breastmilk/formula.",
-        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Training+Bottle+&+Vegetable+Puree",
-        "challenges": "Obstacle: Teething pain starting.",
-        "tips": "How to overcome: Provide cold, clean teething rings."
+        "breakfast": "1. Apple puree\n- **Prep:** Steam and blend.\n2. Mashed banana\n- **Prep:** Mash until smooth.\n3. Oat cereal\n- **Prep:** Cook in water.",
+        "meals": "1. Zucchini puree\n- **Prep:** Steam without salt.\n2. Sweet potato mash\n- **Prep:** Bake and blend.\n3. Carrot puree\n- **Prep:** Boil and puree.",
+        "snacks": "1. Milk feed\n- **Prep:** Serve at body temp.\n2. Cucumber stick (for teething)\n- **Prep:** Chill in fridge.\n3. Breastmilk/Formula",
+        "sweets": "1. Mashed natural dates\n- **Prep:** Soak and mash tiny amounts.\n2. Baked pear puree\n3. Mashed sweet potato",
+        "juices": "1. Boiled/cooled water\n- **Prep:** Small sips.\n2. Milk\n3. Diluted unsweetened chamomile",
+        "nutritional_elements": "Iron (crucial), Zinc, Vitamin D.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Vegetable+Puree",
+        "challenges": "Obstacle: Teething pain and digestive changes.",
+        "tips": "How to overcome: Introduce one new food every 3 days to check for allergies."
     },
-    0.75: {
+    "7 Months": {
+        "expected_height": 70,
+        "experiences": "Passing objects between hands easily, crawling attempts, babbling 'ba-ba'.",
+        "activities": "Hiding toys under blankets (object permanence).",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Peek-a-boo+Toys",
+        "daily_calories": "650 - 700 kcal",
+        "breakfast": "1. Mashed boiled egg yolk\n- **Prep:** Hard-boil, remove white.\n2. Avocado mash\n- **Prep:** Mash soft avocado.\n3. Oat cereal with apple puree",
+        "meals": "1. Lentil mash\n- **Prep:** Boil yellow lentils.\n2. Pea puree\n- **Prep:** Steam and blend.\n3. Mashed butternut squash",
+        "snacks": "1. Steamed carrot sticks\n- **Prep:** Steam until squishy.\n2. Milk feed\n3. Unsweetened yogurt (plain)",
+        "sweets": "1. Yogurt with a drop of date puree\n2. Baked apple\n3. Banana mash",
+        "juices": "1. Water\n2. Milk\n3. Drop of fresh orange in water",
+        "nutritional_elements": "Calcium, Iron, Vitamin C.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Mashed+Food+Bowl",
+        "challenges": "Obstacle: Constipation from new solid foods.",
+        "tips": "How to overcome: Offer small sips of water and pear puree."
+    },
+    "8 Months": {
+        "expected_height": 71,
+        "experiences": "Crawling, pulling to stand, pointing at objects.",
+        "activities": "Stacking soft rings, playing with safe kitchen bowls.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Stacking+Rings",
+        "daily_calories": "700 - 750 kcal",
+        "breakfast": "1. Scrambled egg yolk\n- **Prep:** Cook with tiny olive oil.\n2. Mashed papaya\n3. Wheat cereal (iron-fortified)",
+        "meals": "1. Minced chicken with soft rice\n- **Prep:** Boil and shred micro-pieces.\n2. Mashed potato & spinach\n3. Soft fish mash (no bones)",
+        "snacks": "1. Teething crackers (sugar-free)\n2. Peach slices (steamed)\n3. Milk feed",
+        "sweets": "1. Sugar-free banana pancake\n- **Prep:** 1 egg yolk + banana, pan-fried.\n2. Baked sweet potato\n3. Applesauce",
+        "juices": "1. Water\n2. Milk\n3. Diluted fresh apple juice (drops)",
+        "nutritional_elements": "Protein, Omega-3 for brain, Iron.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Minced+Chicken+&+Rice",
+        "challenges": "Obstacle: Separation anxiety.",
+        "tips": "How to overcome: Play peek-a-boo to teach that you come back."
+    },
+    "9 Months": {
         "expected_height": 72,
-        "experiences": "Crawling, pulling to stand, using pincer grasp.",
-        "activities": "Stacking soft rings, crawling through tunnels.",
-        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Crawling+&+Stacking+(9+Months)",
-        "daily_calories": "700 - 800 kcal",
-        "breakfast": "1. Oat cereal with mashed fruit\n2. Mashed boiled egg yolk\n3. Unsweetened plain yogurt",
-        "meals": "1. Soft lentil mash\n2. Minced chicken with soft rice\n3. Mashed peas & carrots",
-        "snacks": "1. Soft steamed carrot sticks\n2. Sugar-free teething biscuits\n3. Banana slices",
-        "sweets": "1. Yogurt with a drop of mashed dates\n2. Sugar-free banana pancakes (2 ingredients)\n3. Baked soft pear",
-        "juices": "1. Water\n2. Milk\n3. Drops of fresh orange juice mixed heavily with water",
-        "nutritional_elements": "Iron-rich foods, Calcium, healthy fats.",
-        "prep_method": "Food can be thicker now (mashed, not pureed). Mash lentils well. Bake pancakes using only egg and banana.",
-        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Mashed+Food+Bowl+&+Bottle",
-        "challenges": "Obstacle: Stranger and separation anxiety.",
-        "tips": "How to overcome: Do not sneak away; say a quick, cheerful goodbye."
+        "experiences": "Pincer grasp (thumb and index), understanding 'no'.",
+        "activities": "Crawling through tunnels, sorting shapes.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Crawling+Tunnels",
+        "daily_calories": "750 - 800 kcal",
+        "breakfast": "1. Cottage cheese\n- **Prep:** Mash pasteurized cheese.\n2. Oatmeal with fruit\n3. Mashed boiled egg",
+        "meals": "1. Soft beef meatballs\n- **Prep:** Minced fine, baked soft.\n2. Lentil & carrot soup\n3. Soft pasta bits with tomato",
+        "snacks": "1. Steamed broccoli florets\n2. Banana chunks\n3. Yogurt",
+        "sweets": "1. Date paste with yogurt\n2. Baked pear with cinnamon\n3. Soft oat balls",
+        "juices": "1. Water\n2. Milk\n3. Fresh strained guava drops in water",
+        "nutritional_elements": "Vitamin A, Iron, Calcium.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Soft+Meatballs+&+Veggies",
+        "challenges": "Obstacle: Refusing to be spoon-fed.",
+        "tips": "How to overcome: Encourage independent feeding with safe finger foods."
     },
-    1.0: {
+    "10 Months": {
+        "expected_height": 73,
+        "experiences": "Cruising along furniture, waving goodbye.",
+        "activities": "Push-toys to practice walking, simple puzzles.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Push+Toys",
+        "daily_calories": "800 - 850 kcal",
+        "breakfast": "1. Whole wheat toast bits\n- **Prep:** Soak in milk if too hard.\n2. Scrambled eggs\n3. Fruit yogurt",
+        "meals": "1. Chicken and vegetable stew\n- **Prep:** Cook until very tender.\n2. Fish and sweet potato mash\n3. Fava beans (skinless)",
+        "snacks": "1. Melon slices\n2. Soft cheese cubes\n3. Milk",
+        "sweets": "1. Homemade fruit popsicle\n- **Prep:** Freeze blended fruit (no sugar).\n2. Date & oat cookies (soft)\n3. Baked apple",
+        "juices": "1. Water\n2. Milk\n3. Diluted carrot juice",
+        "nutritional_elements": "Complex carbs, Zinc, Omega-3.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Chicken+Stew",
+        "challenges": "Obstacle: Waking up standing in the crib.",
+        "tips": "How to overcome: Teach them how to safely sit back down from a standing position during the day."
+    },
+    "11 Months": {
+        "expected_height": 74,
+        "experiences": "Standing alone for a few seconds, understanding simple instructions.",
+        "activities": "Building blocks, reading interactive books.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Building+Blocks",
+        "daily_calories": "850 - 900 kcal",
+        "breakfast": "1. Pancakes (Banana & Egg)\n- **Prep:** Pan-fry in tiny butter.\n2. Foul (Fava beans) with olive oil\n3. Porridge",
+        "meals": "1. Soft rice with chicken\n2. Macaroni with hidden veggie sauce\n3. Baked salmon flakes",
+        "snacks": "1. Apple slices (steamed)\n2. Hummus with soft bread\n3. Cheese sticks",
+        "sweets": "1. Mahalabia (Rice pudding)\n- **Prep:** Sweeten with date syrup.\n2. Fresh berries\n3. Oat & banana muffins",
+        "juices": "1. Water\n2. Milk\n3. Fresh strawberry blend (diluted)",
+        "nutritional_elements": "Fiber, Protein, Vitamin B.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Macaroni+&+Veggies",
+        "challenges": "Obstacle: Throwing food on the floor.",
+        "tips": "How to overcome: Do not react heavily. Calmly remove the plate if they persist."
+    },
+    
+   # TODDLERS TO TEENS (1 TO 16 YEARS)
+    "1 Year": {
         "expected_height": 75,
-        "experiences": "Walking with support, standing alone, first words.",
+        "experiences": "Walking with support or independently, first clear words.",
         "activities": "Sensory play with sand/water, large blocks.",
         "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Large+Blocks+(1+Year)",
         "daily_calories": "900 - 1000 kcal",
-        "breakfast": "1. Scrambled eggs\n2. Well-mashed fava beans (Foul) with olive oil\n3. Whole wheat toast with cottage cheese",
-        "meals": "1. Shredded chicken & mashed potatoes\n2. Lentil soup\n3. Soft fish fillet with rice",
-        "snacks": "1. Peach slices\n2. Soft cheese cubes\n3. Hummus dip with soft bread",
-        "sweets": "1. Homemade fruit yogurt\n2. Date & oat energy balls (very soft)\n3. Baked sweet potato with a pinch of cinnamon",
-        "juices": "1. Fresh Guava juice (strained, no sugar)\n2. Diluted fresh apple juice\n3. Fresh strawberry blend",
-        "nutritional_elements": "Omega-3, Calcium for bones, Vitamin C.",
-        "prep_method": "Cut all solid food into very small pieces. Blend juices with water/milk instead of sugar. Roll dates and oats for healthy sweets.",
-        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Toddler+Plate+(Chicken,+Potatoes,+Veggies)",
+        "breakfast": "1. Scrambled eggs\n- **Prep:** Cook on low heat with olive oil.\n2. Fava beans (Foul)\n- **Prep:** Mash with olive oil & cumin.\n3. Whole wheat toast with cheese",
+        "meals": "1. Shredded chicken & mashed potatoes\n- **Prep:** Boil potatoes, shred chicken.\n2. Lentil soup\n3. Soft fish fillet with rice",
+        "snacks": "1. Peach slices\n- **Prep:** Cut into thin slices.\n2. Soft cheese cubes\n3. Hummus dip",
+        "sweets": "1. Date & oat energy balls\n- **Prep:** Roll soaked dates and oats.\n2. Homemade fruit yogurt\n3. Baked sweet potato",
+        "juices": "1. Fresh Guava juice\n- **Prep:** Strain seeds, no sugar.\n2. Diluted apple juice\n3. Milk",
+        "nutritional_elements": "Omega-3, Calcium, Vitamin C.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Toddler+Plate+(Chicken,+Potatoes)",
         "challenges": "Obstacle: Resistance to naps.",
         "tips": "How to overcome: Stick strictly to the daily nap schedule."
     },
-    2.0: {
+    "2 Years": {
         "expected_height": 87,
-        "experiences": "Running, explosive vocabulary, asserting independence.",
+        "experiences": "Running, explosive vocabulary, asserting independence ('Terrible Twos').",
         "activities": "Finger painting, running in the park, simple puzzles.",
         "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Finger+Painting+(2+Years)",
         "daily_calories": "1000 - 1400 kcal",
-        "breakfast": "1. Oatmeal with berries\n2. Hard-boiled egg & cucumber\n3. Peanut butter on whole wheat toast",
-        "meals": "1. Rice with small lean meatballs & peas\n2. Whole wheat pasta with hidden veggie sauce\n3. Grilled chicken strips with sweet corn",
-        "snacks": "1. Cucumber sticks\n2. Whole milk yogurt\n3. Apple slices",
-        "sweets": "1. Homemade banana ice cream (frozen blended bananas)\n2. Dark chocolate square (small)\n3. Carrot cake muffin (sugar-free)",
-        "juices": "1. Orange & Carrot blend\n2. Fresh Watermelon juice\n3. Cold Hibiscus (Karkadeh) with a dash of honey",
+        "breakfast": "1. Oatmeal with berries\n- **Prep:** Cook oats in whole milk.\n2. Hard-boiled egg & cucumber\n3. Peanut butter on toast",
+        "meals": "1. Rice with small lean meatballs & peas\n- **Prep:** Bake meatballs until soft.\n2. Whole wheat pasta with veggie sauce\n3. Grilled chicken strips with corn",
+        "snacks": "1. Cucumber sticks\n- **Prep:** Peel and cut into sticks.\n2. Whole milk yogurt\n3. Apple slices",
+        "sweets": "1. Homemade banana ice cream\n- **Prep:** Blend frozen bananas.\n2. Dark chocolate square (small)\n3. Carrot cake muffin (sugar-free)",
+        "juices": "1. Orange & Carrot blend\n- **Prep:** Juice fresh.\n2. Watermelon juice\n3. Cold Hibiscus with honey",
         "nutritional_elements": "Fiber for digestion, Protein, Vitamin A.",
-        "prep_method": "Bake meatballs until very soft. Blend veggies into pasta sauce to hide them. Use frozen bananas for healthy ice cream.",
-        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Healthy+Toddler+Meal+(Pasta+&+Meatballs)",
-        "challenges": "Obstacle: Severe temper tantrums ('Terrible Twos').",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Healthy+Toddler+Meal",
+        "challenges": "Obstacle: Severe temper tantrums in public.",
         "tips": "How to overcome: Offer simple choices (e.g., 'red cup or blue cup?')."
     },
-    3.0: {
+    "3 Years": {
         "expected_height": 95,
         "experiences": "Imaginative play, asking 'why' constantly, toilet training.",
         "activities": "Riding a tricycle, coloring with crayons.",
         "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Tricycle+Riding+(3+Years)",
         "daily_calories": "1200 - 1400 kcal",
-        "breakfast": "1. Boiled eggs & sweet potato\n2. Fava beans with tomato & cumin\n3. Cheese sandwich with cucumber",
-        "meals": "1. Grilled chicken & quinoa\n2. Beef stew with carrots & potatoes\n3. Fish sticks (baked, not fried)",
-        "snacks": "1. Walnuts (if safe/no allergy)\n2. Grapes (cut lengthwise)\n3. Plain milk",
-        "sweets": "1. Baked apples with cinnamon\n2. Oatmeal & raisin cookies (low sugar)\n3. Rice pudding (Mahalabia) with honey",
-        "juices": "1. Fresh Mango juice (in moderation)\n2. Lemon-Mint cooler\n3. Fresh Peach juice",
+        "breakfast": "1. Boiled eggs & sweet potato\n- **Prep:** Slice thinly.\n2. Fava beans with tomato\n3. Cheese sandwich with cucumber",
+        "meals": "1. Grilled chicken & quinoa\n- **Prep:** Grill chicken breast.\n2. Beef stew with carrots\n3. Fish sticks (baked)",
+        "snacks": "1. Walnuts\n- **Prep:** Crush slightly.\n2. Grapes (cut lengthwise)\n3. Plain milk",
+        "sweets": "1. Baked apples with cinnamon\n- **Prep:** Bake until soft.\n2. Oatmeal & raisin cookies\n3. Rice pudding with honey",
+        "juices": "1. Fresh Mango juice\n- **Prep:** In moderation.\n2. Lemon-Mint cooler\n3. Fresh Peach juice",
         "nutritional_elements": "Complex carbohydrates, Calcium, Vitamin B12.",
-        "prep_method": "Cut grapes lengthwise to prevent choking. Bake fish sticks using whole wheat breadcrumbs. Sweeten Mahalabia with honey instead of sugar.",
         "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Fun-shaped+Healthy+Sandwich",
         "challenges": "Obstacle: Picky eating and fear of the dark.",
         "tips": "How to overcome: Do not force feed. Use a dim nightlight."
     },
-    4.0: {
+    "4 Years": {
         "expected_height": 103,
         "experiences": "Cooperative play, sharing toys, distinguishing fantasy from reality.",
         "activities": "Gymnastics basics, playground climbing, hide-and-seek.",
         "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Playground+Climbing+(4+Years)",
         "daily_calories": "1200 - 1400 kcal",
-        "breakfast": "1. Whole wheat pancakes (sweetened with banana)\n2. Veggie omelet\n3. Granola with yogurt",
-        "meals": "1. Baked salmon with spinach pasta\n2. Lentil soup with whole grain bread\n3. Chicken shawarma (homemade on whole wheat wrap)",
-        "snacks": "1. Roasted chickpeas\n2. Sliced bell peppers\n3. Cottage cheese",
-        "sweets": "1. Homemade fruit popsicles\n2. Dark chocolate dipped strawberries\n3. Healthy brownies (made with sweet potato)",
-        "juices": "1. Fresh Pomegranate juice\n2. Kiwi & Apple blend\n3. Fresh Cantaloupe juice",
+        "breakfast": "1. Whole wheat pancakes\n- **Prep:** Sweeten with banana.\n2. Veggie omelet\n3. Granola with yogurt",
+        "meals": "1. Baked salmon with spinach pasta\n- **Prep:** Boil pasta, mix with spinach.\n2. Lentil soup\n3. Chicken shawarma (homemade)",
+        "snacks": "1. Roasted chickpeas\n- **Prep:** Toss in olive oil, roast.\n2. Sliced bell peppers\n3. Cottage cheese",
+        "sweets": "1. Homemade fruit popsicles\n- **Prep:** Freeze blended fruit.\n2. Dark chocolate dipped strawberries\n3. Healthy sweet potato brownies",
+        "juices": "1. Fresh Pomegranate juice\n- **Prep:** Strain well.\n2. Kiwi & Apple blend\n3. Fresh Cantaloupe juice",
         "nutritional_elements": "Magnesium, Iron from leafy greens, Omega-3.",
-        "prep_method": "Make pancakes using banana and egg. Freeze blended fresh fruits in popsicle molds for healthy summer sweets.",
         "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Salmon+and+Spinach+Pasta",
         "challenges": "Obstacle: Testing boundaries, occasional lying.",
         "tips": "How to overcome: Set clear rules with logical consequences."
     },
-
-    **{age: {
-        "expected_height": 110 + int((age-5)*5.5),
-        "experiences": "School focus, growing independence, peer social development.",
-        "activities": "Team sports, swimming, martial arts, reading.",
-        "activity_image": f"https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Sports+&+Reading+({int(age)}+Years)",
-        "daily_calories": f"{1400 + int((age-5)*100)} - {1600 + int((age-5)*100)} kcal",
-        "breakfast": "1. Protein oatmeal\n2. Avocado toast with egg\n3. Fava beans with olive oil",
-        "meals": "1. Grilled chicken with roasted veggies\n2. Beef stir-fry with brown rice\n3. Tuna salad with whole wheat pasta",
-        "snacks": "1. Mixed unsalted nuts\n2. Fresh fruit salad\n3. Air-popped popcorn",
-        "sweets": "1. Peanut butter energy bites\n2. Greek yogurt with honey and berries\n3. Baked cinnamon bananas",
-        "juices": "1. Fresh Orange juice\n2. Hibiscus (Karkadeh) tea\n3. Lemonade with mint (low sugar)",
-        "nutritional_elements": "High Protein, Calcium, Iron, Vitamin C, Zinc.",
-        "prep_method": "Grill or bake meats instead of frying. Use olive oil. Sweeten desserts with honey or dates naturally.",
-        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Healthy+Balanced+Plate",
-        "challenges": "Obstacle: Academic stress and screen time battles.",
-        "tips": "How to overcome: Create a screen-time contract and break study tasks into small steps."
-    } for age in range(5, 17)}
-}
-
-development_data[13.0] = {
-    "expected_height": 156,
-    "experiences": "Teenage phase, peer acceptance focus, growth spurts.",
-    "activities": "Gym/fitness basics, team sports, coding, volunteering.",
-    "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Gym/Fitness+(13+Years)",
-    "daily_calories": "2200 - 2600 kcal (High need for growth)",
-    "breakfast": "1. Eggs & whole grain bread\n2. Greek yogurt with oats & chia seeds\n3. Protein smoothie (milk, banana, peanut butter)",
-    "meals": "1. Quinoa & fresh salmon\n2. Lentil soup & roasted veggies\n3. Grilled steak with sweet potato mash",
-    "snacks": "1. Almonds\n2. Peanut butter sandwich\n3. Hard-boiled eggs",
-    "sweets": "1. Avocado chocolate mousse\n2. Dark chocolate squares (70%+ cacao)\n3. Homemade protein bars",
-    "juices": "1. Beetroot & Apple juice (Iron booster)\n2. Fresh Green juice (Spinach/Apple)\n3. Cold Hibiscus",
-    "nutritional_elements": "Maximum caloric need, Calcium for bone density, Iron (especially for girls), Zinc.",
-    "prep_method": "Roast vegetables to enhance flavor. Blend avocado with cocoa powder and honey for a healthy, high-fat chocolate mousse.",
-    "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Quinoa+&+Salmon+Bowl",
-    "challenges": "Obstacle: Late-night texting, sleep deprivation.",
-    "tips": "How to overcome: Establish tech-free zones in bedrooms at night."
+    "5 Years": {
+        "expected_height": 110,
+        "experiences": "School readiness, wanting to please friends.",
+        "activities": "Swimming lessons, basic football, arts and crafts.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Swimming+Lessons+(5+Years)",
+        "daily_calories": "1400 - 1600 kcal",
+        "breakfast": "1. Peanut butter on toast\n- **Prep:** Use whole grain bread.\n2. Cereal with milk\n3. Scrambled eggs",
+        "meals": "1. Lean turkey sandwich\n- **Prep:** Add lettuce and tomato.\n2. Baked chicken & roasted veggies\n3. Minced meat with rice",
+        "snacks": "1. Fruit salad\n- **Prep:** Mix colorful seasonal fruits.\n2. Cheese sticks\n3. Almonds",
+        "sweets": "1. Yogurt with honey\n- **Prep:** Drizzle honey lightly.\n2. Carrot cake (low sugar)\n3. Fruit skewers",
+        "juices": "1. Orange juice\n- **Prep:** Freshly squeezed.\n2. Watermelon blend\n3. Cold milk",
+        "nutritional_elements": "Vitamin C for immunity, Zinc, Protein.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Turkey+Sandwich+&+Carrots",
+        "challenges": "Obstacle: Separation anxiety at school gates.",
+        "tips": "How to overcome: Create a visual morning chart. Keep goodbyes quick."
+    },
+    "6 Years": {
+        "expected_height": 115,
+        "experiences": "First grade transition, losing baby teeth.",
+        "activities": "Cycling without training wheels, team sports.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Cycling+(6+Years)",
+        "daily_calories": "1400 - 1600 kcal",
+        "breakfast": "1. Fortified cereal with milk\n- **Prep:** Serve cold or warm.\n2. Egg sandwich\n3. Avocado toast",
+        "meals": "1. Beef strips with broccoli & rice\n- **Prep:** Stir fry with light soy sauce.\n2. Fish fillet with potatoes\n3. Lentil soup",
+        "snacks": "1. Almonds\n- **Prep:** Raw or dry roasted.\n2. Fresh fruit\n3. Yogurt",
+        "sweets": "1. Baked apples\n- **Prep:** Bake with cinnamon.\n2. Peanut butter balls\n3. Dark chocolate",
+        "juices": "1. Lemonade with mint\n- **Prep:** Low sugar.\n2. Apple juice\n3. Berry smoothie",
+        "nutritional_elements": "Calcium & Vitamin D for new teeth.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Baked+Fish+and+Potatoes",
+        "challenges": "Obstacle: Backtalk and frustration with homework.",
+        "tips": "How to overcome: Praise effort, not just grades."
+    },
+    "7 Years": {
+        "expected_height": 122,
+        "experiences": "Growing independence, strong sense of fairness.",
+        "activities": "Martial arts, reading storybooks, complex Lego.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Martial+Arts+(7+Years)",
+        "daily_calories": "1600 - 1800 kcal",
+        "breakfast": "1. Eggs & whole wheat bread\n- **Prep:** Boil or scramble.\n2. Oatmeal with honey\n3. White cheese & tomatoes",
+        "meals": "1. Grilled salmon & quinoa\n- **Prep:** Grill lightly.\n2. Vegetable stew with lean meat\n3. Chicken wrap",
+        "snacks": "1. Mixed nuts\n- **Prep:** Keep unsalted.\n2. Cherry tomatoes\n3. Air-popped popcorn",
+        "sweets": "1. Fruit parfait\n- **Prep:** Layer yogurt and fruits.\n2. Dates\n3. Healthy oat cookies",
+        "juices": "1. Hibiscus (Karkadeh)\n- **Prep:** Serve cold.\n2. Orange juice\n3. Milk",
+        "nutritional_elements": "Complex Carbohydrates, Antioxidants, Protein.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Vegetable+Stew",
+        "challenges": "Obstacle: Fear of failure, perfectionism.",
+        "tips": "How to overcome: Share your own daily mistakes."
+    },
+    "8 Years": {
+        "expected_height": 128,
+        "experiences": "Peer groups matter, understanding complex emotions.",
+        "activities": "Basketball, painting, learning a musical instrument.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Basketball+(8+Years)",
+        "daily_calories": "1600 - 1800 kcal",
+        "breakfast": "1. Oatmeal with nuts\n- **Prep:** Mix well.\n2. Fava beans with olive oil\n3. Peanut butter toast",
+        "meals": "1. Rice, beans, and grilled chicken\n- **Prep:** Grill chicken, mix rice and beans.\n2. Spinach & cheese omelet\n3. Beef stir-fry",
+        "snacks": "1. Popcorn (air-popped)\n- **Prep:** No heavy butter.\n2. Carrot sticks with hummus\n3. Grapes",
+        "sweets": "1. Greek yogurt with honey\n- **Prep:** Mix well.\n2. Banana bread (low sugar)\n3. Dark chocolate",
+        "juices": "1. Mango juice\n- **Prep:** Fresh.\n2. Watermelon blend\n3. Lemonade",
+        "nutritional_elements": "Iron, Vitamin E, Fiber.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Rice,+Beans,+Chicken",
+        "challenges": "Obstacle: Screen time battles.",
+        "tips": "How to overcome: Create a written 'screen-time contract'."
+    },
+    "9 Years": {
+        "expected_height": 133,
+        "experiences": "Forming selective friendships, mastering hobbies.",
+        "activities": "Robotics/coding basics, advanced team sports.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Coding/Robotics+(9+Years)",
+        "daily_calories": "1600 - 2000 kcal",
+        "breakfast": "1. Greek yogurt & fruit\n- **Prep:** Top with fresh fruit.\n2. Scrambled eggs\n3. Pancakes (whole wheat)",
+        "meals": "1. Lentil soup & whole wheat bread\n- **Prep:** Serve hot.\n2. Roasted chicken & sweet corn\n3. Tuna pasta salad",
+        "snacks": "1. Boiled corn\n- **Prep:** Boil without butter.\n2. Dark chocolate square\n3. Milk",
+        "sweets": "1. Baked pear\n- **Prep:** Bake with cinnamon.\n2. Oat & date balls\n3. Fruit salad",
+        "juices": "1. Strawberry juice\n- **Prep:** Fresh, low sugar.\n2. Guava juice\n3. Apple juice",
+        "nutritional_elements": "Calcium before puberty growth spurts, B Vitamins.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Roasted+Chicken+&+Corn",
+        "challenges": "Obstacle: Dealing with mean behavior at school.",
+        "tips": "How to overcome: Role-play how to respond to unkind peers."
+    },
+    "10 Years": {
+        "expected_height": 138,
+        "experiences": "Approaching puberty, seeking privacy.",
+        "activities": "Track and field, drama clubs, science experiments.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Science+Experiments+(10+Years)",
+        "daily_calories": "1800 - 2000 kcal",
+        "breakfast": "1. Scrambled eggs with spinach\n- **Prep:** Cook together.\n2. Avocado toast\n3. Oatmeal",
+        "meals": "1. Grilled steak & sweet potato mash\n- **Prep:** Grill steak, mash potatoes.\n2. Tuna salad\n3. Chicken stew",
+        "snacks": "1. Pecans\n- **Prep:** Raw.\n2. Boiled egg\n3. Apple",
+        "sweets": "1. Rice pudding\n- **Prep:** Light honey.\n2. Dark chocolate\n3. Baked banana",
+        "juices": "1. Orange & Carrot juice\n- **Prep:** Freshly squeezed.\n2. Lemon-Mint\n3. Milk",
+        "nutritional_elements": "High Iron (crucial for girls), Zinc, Calcium.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Steak+&+Sweet+Potato",
+        "challenges": "Obstacle: Pre-puberty mood swings.",
+        "tips": "How to overcome: Respect their growing need for personal space."
+    },
+    "11 Years": {
+        "expected_height": 144,
+        "experiences": "Puberty beginning, high body image awareness.",
+        "activities": "Competitive sports, photography, writing.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Photography+(11+Years)",
+        "daily_calories": "1800 - 2200 kcal",
+        "breakfast": "1. Avocado toast\n- **Prep:** Top with a poached egg.\n2. Fava beans\n3. Yogurt with nuts",
+        "meals": "1. Chicken liver & onions with salad\n- **Prep:** Sauté with garlic.\n2. Steamed seafood\n3. Beef with brown rice",
+        "snacks": "1. Organic berries\n- **Prep:** Wash well.\n2. Walnuts\n3. Smoothie",
+        "sweets": "1. Avocado chocolate mousse\n- **Prep:** Blend avocado, cocoa, honey.\n2. Dates\n3. Fruit skewers",
+        "juices": "1. Green juice (Spinach/Apple)\n- **Prep:** Blend and strain.\n2. Pomegranate juice\n3. Hibiscus",
+        "nutritional_elements": "Increased calories, Folate, Calcium for bones.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Seafood+&+Salad",
+        "challenges": "Obstacle: Body image insecurities.",
+        "tips": "How to overcome: Focus entirely on health and strength, never on weight."
+    },
+    "12 Years": {
+        "expected_height": 150,
+        "experiences": "Identity exploration, growth spurts.",
+        "activities": "Football, swimming, learning a language.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Swimming+(12+Years)",
+        "daily_calories": "2000 - 2400 kcal",
+        "breakfast": "1. Protein oats\n- **Prep:** Mix oats, milk, peanut butter.\n2. Eggs and toast\n3. Cereal",
+        "meals": "1. Chickpeas & rice with lean meat\n- **Prep:** Add lemon to chickpeas.\n2. Grilled chicken wrap\n3. Salmon and pasta",
+        "snacks": "1. Mixed nuts\n- **Prep:** Unsalted.\n2. Fruit salad\n3. Protein bar (homemade)",
+        "sweets": "1. Banana ice cream\n- **Prep:** Freeze and blend bananas.\n2. Dark chocolate\n3. Baked apple",
+        "juices": "1. Watermelon juice\n- **Prep:** Fresh.\n2. Lemonade\n3. Milk",
+        "nutritional_elements": "Protein for muscle mass, Omega-3.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Healthy+Chicken+Wrap",
+        "challenges": "Obstacle: Rebellion against household rules.",
+        "tips": "How to overcome: Start negotiating chores to give them control."
+    },
+    "13 Years": {
+        "expected_height": 156,
+        "experiences": "Teenage phase, peer acceptance focus, growth spurts.",
+        "activities": "Gym/fitness basics, team sports, coding.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Gym/Fitness+(13+Years)",
+        "daily_calories": "2200 - 2600 kcal",
+        "breakfast": "1. Eggs & whole grain bread\n- **Prep:** Boil or fry lightly.\n2. Greek yogurt with chia seeds\n3. Protein smoothie",
+        "meals": "1. Quinoa & fresh salmon\n- **Prep:** Grill salmon, boil quinoa.\n2. Lentil soup & roasted veggies\n3. Grilled steak with sweet potato",
+        "snacks": "1. Almonds\n- **Prep:** Raw.\n2. Peanut butter sandwich\n3. Hard-boiled eggs",
+        "sweets": "1. Avocado chocolate mousse\n- **Prep:** Blend avocado, cocoa, honey.\n2. Dark chocolate squares (70%+)\n3. Homemade protein bars",
+        "juices": "1. Beetroot & Apple juice\n- **Prep:** Great Iron booster.\n2. Green juice\n3. Cold Hibiscus",
+        "nutritional_elements": "Maximum caloric need, Calcium, Iron, Zinc.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Quinoa+&+Salmon+Bowl",
+        "challenges": "Obstacle: Late-night texting, sleep deprivation.",
+        "tips": "How to overcome: Establish tech-free zones in bedrooms at night."
+    },
+    "14 Years": {
+        "expected_height": 163,
+        "experiences": "Abstract thinking, moral compass, high energy needs.",
+        "activities": "Specialized sports, debate clubs.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Debate/Clubs+(14+Years)",
+        "daily_calories": "2200 - 2800 kcal",
+        "breakfast": "1. Smoothie bowl\n- **Prep:** Blend fruits thickly, top with nuts.\n2. Veggie omelet\n3. Fava beans",
+        "meals": "1. Whole wheat pasta, local beef, tomatoes\n- **Prep:** Toss pasta with olive oil.\n2. Bean salad & boiled eggs\n3. Chicken shawarma (homemade)",
+        "snacks": "1. Trail mix\n- **Prep:** Nuts and dried fruits.\n2. Dark chocolate\n3. Fruit",
+        "sweets": "1. Healthy brownies\n- **Prep:** Made with sweet potato.\n2. Fruit popsicles\n3. Yogurt parfait",
+        "juices": "1. Pomegranate juice\n- **Prep:** Fresh.\n2. Kiwi & Apple blend\n3. Cantaloupe juice",
+        "nutritional_elements": "Complex Carbohydrates, High Protein, Vitamin D.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Beef+Pasta+&+Vegetables",
+        "challenges": "Obstacle: Academic stress, procrastination.",
+        "tips": "How to overcome: Help break large study tasks into 20-minute steps."
+    },
+    "15 Years": {
+        "expected_height": 168,
+        "experiences": "Exploring future paths, nearing adult height.",
+        "activities": "Weight training, music, leadership programs.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Weight+Training+(15+Years)",
+        "daily_calories": "2200 - 2800 kcal",
+        "breakfast": "1. Protein smoothie\n- **Prep:** Blend oats, milk, banana, peanut butter.\n2. Avocado toast\n3. Eggs",
+        "meals": "1. Grilled chicken & fava beans\n- **Prep:** Grill chicken breast.\n2. Steak & asparagus\n3. Fish and rice",
+        "snacks": "1. Macadamia nuts\n- **Prep:** Raw.\n2. Roasted oats\n3. Cheese",
+        "sweets": "1. Baked apples\n- **Prep:** Add cinnamon.\n2. Date balls\n3. Dark chocolate",
+        "juices": "1. Mango juice\n- **Prep:** In moderation.\n2. Orange juice\n3. Milk",
+        "nutritional_elements": "Balanced macros, hydration, Magnesium.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Protein+Smoothie",
+        "challenges": "Obstacle: Social exclusion, peer drama.",
+        "tips": "How to overcome: Listen more than you speak; validate their feelings."
+    },
+    "16 Years": {
+        "expected_height": 173,
+        "experiences": "Adult physical maturity, college/career thinking.",
+        "activities": "Advanced hobbies, career workshops, driving prep.",
+        "activity_image": "https://placehold.co/600x400/E6F7FF/003366?text=Activity:+Career+Prep+(16+Years)",
+        "daily_calories": "2400 - 3000 kcal",
+        "breakfast": "1. Omelet & whole grain toast\n- **Prep:** Add veggies to omelet.\n2. Protein oats\n3. Fava beans with olive oil",
+        "meals": "1. Seafood & large mixed salad\n- **Prep:** Teach them to cook their own healthy meals.\n2. Grilled poultry & roasted veggies\n3. Beef stir-fry",
+        "snacks": "1. Premium nuts\n- **Prep:** Keep unsalted.\n2. Greek yogurt\n3. Fruits",
+        "sweets": "1. Fruit salad\n- **Prep:** Fresh seasonal fruits.\n2. Healthy oat cookies\n3. Dark chocolate",
+        "juices": "1. Lemon-Mint\n- **Prep:** Low sugar.\n2. Fresh juices\n3. Milk",
+        "nutritional_elements": "Adult nutritional needs, limiting processed sugars.",
+        "food_image": "https://placehold.co/600x400/FFF0F5/4A004A?text=Image:+Large+Mixed+Salad+&+Seafood",
+        "challenges": "Obstacle: Anxiety about the future and exams.",
+        "tips": "How to overcome: Assure them that it is okay not to have life fully figured out yet."
+    }
 }
 
 # 2. Vaccinations Data
@@ -346,20 +615,20 @@ elif page == "🏃 Activities & Milestones":
             st.subheader("🍎 Clinical Nutrition & Diet Plan")
             st.info(f"**🔥 Daily Calories:** {info.get('daily_calories', 'Varies')}")
             
-       
+            # Nutrition Tabs
             tab1, tab2, tab3, tab4, tab5 = st.tabs(["🍳 Breakfast", "🍲 Main Meals", "🥨 Snacks", "🧁 Sweets", "🧃 Juices/Drinks"])
             
             with tab1:
-                st.write("**Healthy Breakfast Options:**")
+                st.write("**Healthy Breakfast Options & Preparation:**")
                 st.write(info.get('breakfast', 'Balanced breakfast'))
             with tab2:
-                st.write("**Healthy Lunch/Dinner Options:**")
+                st.write("**Healthy Lunch/Dinner Options & Preparation:**")
                 st.write(info.get('meals', 'Balanced meals'))
             with tab3:
-                st.write("**Healthy Snacks:**")
+                st.write("**Healthy Snacks & Preparation:**")
                 st.write(info.get('snacks', 'Healthy snacks'))
             with tab4:
-                st.write("**Healthy Sweets (No added refined sugar):**")
+                st.write("**Healthy Sweets & Preparation (No added refined sugar):**")
                 st.write(info.get('sweets', 'Natural sweets'))
             with tab5:
                 st.write("**Drinks & Juices:**")
@@ -369,8 +638,7 @@ elif page == "🏃 Activities & Milestones":
 
             st.markdown(f"**🧪 Key Nutrients Needed:** {info.get('nutritional_elements', 'Balanced diet essential for growth.')}")
             
-            with st.expander(f"👩‍🍳 View Preparation Method & Food Ideas"):
-                st.write(f"**How to prepare:** {info.get('prep_method', 'Prepare balanced meals with safe cuts.')}")
+            with st.expander(f"👩‍🍳 View Food Ideas & Inspiration"):
                 if 'food_image' in info:
                     st.image(info['food_image'], caption="Meal Idea Placeholder", use_container_width=True)
                 
@@ -397,3 +665,4 @@ elif page == "💉 Vaccinations":
     st.error(f"🌡️ **Normal Post-Vaccine Symptoms to expect:**\n\n{vaccine_data[selected_month]['symptoms']}")
     
     st.success(f"**Home Care Tips for {get_parents_address()}:**\n- Apply cold compresses to the injection site.\n- Offer plenty of fluids.\n- Use paracetamol only if advised by a doctor.")
+
