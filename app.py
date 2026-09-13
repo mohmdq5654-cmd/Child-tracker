@@ -1,10 +1,10 @@
 import streamlit as st
+import re
 
 # ==========================================
 # 1. Comprehensive Developmental Data
 # ==========================================
 development_data = {
-    # ---------------- INFANTS (1 TO 11 MONTHS) ----------------
     "1 Month": {
         "expected_height": 54,
         "experiences": "Adapting to the world, recognizing parents' voices, keeping hands in tight fists.",
@@ -168,7 +168,7 @@ development_data = {
     }
 }
 
-# Add missing intermediate years
+# Fill missing intermediate years and months to prevent errors
 for age in range(4, 16):
     if f"{age} Years" not in development_data and age not in [6, 10]:
         development_data[f"{age} Years"] = development_data["6 Years"].copy()
@@ -193,16 +193,64 @@ vaccine_data = {
 }
 
 # ==========================================
-# 3. Calculations
+# 3. Medical Calculations (Updated for Gender > 7 years)
 # ==========================================
-def calculate_expected_weight(age_years):
+def calculate_expected_weight(age_years, gender):
     if age_years < 1.0:
         age_months = age_years * 12
         return round((age_months + 9) / 2, 1)
-    elif age_years <= 6.0:
+    elif age_years <= 7.0:
         return round((age_years * 2) + 8, 1)
     else:
-        return round(((age_years * 7) - 5) / 2, 1)
+        # Base formula for > 7 years
+        base_w = (age_years * 7 - 5) / 2
+        
+        # Gender differences after 7 years
+        if gender == "Boy":
+            if age_years > 12:
+                base_w += (age_years - 12) * 2.5 # Boys gain more muscle mass late puberty
+        else: # Girl
+            if 9 <= age_years <= 12:
+                base_w += 2 # Girls hit puberty & growth spurts earlier
+            elif age_years > 12:
+                base_w -= (age_years - 12) * 1.5 # Girls weight gain slows down compared to boys
+        
+        return round(base_w, 1)
+
+def calculate_expected_height(base_height, age_years, gender):
+    if age_years <= 7.0:
+        return base_height
+        
+    h = base_height
+    if gender == "Boy":
+        if age_years > 12:
+            h += (age_years - 12) * 3 # Boys get taller post-puberty
+    else: # Girl
+        if 10 <= age_years <= 12:
+            h += 3 # Early height spurt for girls
+        elif age_years > 12:
+            h -= (age_years - 12) * 2 # Height plateaus earlier for girls
+            
+    return round(h)
+
+def adjust_calories(base_cal_str, age_years, gender):
+    if age_years <= 7.0:
+        return base_cal_str
+        
+    # Extract numbers to adjust based on gender
+    nums = [int(s) for s in re.findall(r'\d+', base_cal_str)]
+    if len(nums) >= 2:
+        low, high = nums[0], nums[1]
+        if gender == "Boy":
+            if age_years >= 11:
+                low += 250
+                high += 350
+        else: # Girl
+            if age_years >= 13:
+                low -= 200
+                high -= 200
+        return f"{low} - {high} kcal (Adjusted for {gender})"
+    return base_cal_str
 
 def check_weight_status(actual_weight, expected_weight):
     if actual_weight < (expected_weight * 0.85): return "Underweight", "⚠️"
@@ -262,6 +310,7 @@ st.markdown("""
 if 'page_state' not in st.session_state: st.session_state.page_state = "Setup"
 if 'parent_name' not in st.session_state: st.session_state.parent_name = ""
 if 'child_name' not in st.session_state: st.session_state.child_name = ""
+if 'child_gender' not in st.session_state: st.session_state.child_gender = "Boy" # Default gender
 
 def navigate(page_name):
     st.session_state.page_state = page_name
@@ -278,11 +327,13 @@ if st.session_state.page_state == "Setup":
     
     parent = st.text_input("Enter your name (Parent):", value=st.session_state.parent_name)
     child = st.text_input("Enter your baby's name:", value=st.session_state.child_name)
+    gender = st.radio("Child's Gender:", ["Boy", "Girl"], index=0 if st.session_state.child_gender == "Boy" else 1)
     
     if st.button("🚀 Enter Dashboard"):
         if parent and child:
             st.session_state.parent_name = parent
             st.session_state.child_name = child
+            st.session_state.child_gender = gender
             navigate("Wheel")
             st.rerun()
         else:
@@ -325,6 +376,7 @@ elif st.session_state.page_state == "Growth":
     st.markdown("---")
     
     st.title("📊 Growth & Vitals Tracker")
+    st.info(f"Viewing data adapted for a **{st.session_state.child_gender}**.")
     st.info("Tip: For infants under 1 year, use decimals (e.g., 0.5 for 6 months).")
     
     col1, col2, col3 = st.columns(3)
@@ -336,7 +388,7 @@ elif st.session_state.page_state == "Growth":
         actual_height = st.number_input("Current Height (cm):", min_value=30.0, max_value=200.0, value=75.0, step=1.0)
 
     if st.button("Analyze Growth", type="primary"):
-        expected_weight = calculate_expected_weight(age)
+        expected_weight = calculate_expected_weight(age, st.session_state.child_gender)
         
         if age < 1.0:
             months = round(age * 12)
@@ -348,7 +400,8 @@ elif st.session_state.page_state == "Growth":
             if years > 16: years = 16
             dict_key = f"{years} Year" if years == 1 else f"{years} Years"
             
-        expected_height = development_data.get(dict_key, {}).get("expected_height", 100)
+        base_height = development_data.get(dict_key, {}).get("expected_height", 100)
+        expected_height = calculate_expected_height(base_height, age, st.session_state.child_gender)
         
         st.subheader(f"Results for {st.session_state.child_name}")
         
@@ -398,7 +451,14 @@ elif st.session_state.page_state == "Activities":
                 st.image(info['activity_image'], use_container_width=True)
         
         st.subheader("🍎 Clinical Nutrition & Diet Plan")
-        st.info(f"**🔥 Daily Calories:** {info.get('daily_calories', 'Varies')}")
+        
+        # Calculate numeric age for calorie adjustment
+        age_num = float(age_selection.split()[0])
+        if "Month" in age_selection:
+            age_num = age_num / 12.0
+            
+        adjusted_cals = adjust_calories(info.get('daily_calories', 'Varies'), age_num, st.session_state.child_gender)
+        st.info(f"**🔥 Daily Calories:** {adjusted_cals}")
         
         tab1, tab2, tab3, tab4, tab5 = st.tabs(["🍳 Breakfast", "🍲 Main Meals", "🥨 Snacks", "🧁 Sweets", "🧃 Drinks"])
         
