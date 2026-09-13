@@ -5,7 +5,7 @@ import streamlit as st
 # 1. Comprehensive Developmental Data (Ages 0.25 to 16)
 
 development_data = {
-    0.25: {  # 3 Months
+    0.25: {
         "expected_height": 61,
         "experiences": "Beginning to smile at people, holding head up briefly during tummy time, tracking moving objects with eyes, and making cooing sounds.",
         "activities": "Tummy time on a soft mat, dangling colorful toys, gentle talking, and singing.",
@@ -13,11 +13,11 @@ development_data = {
         "nutrition": "Formula milk feeding using a newborn feeding bottle.",
         "nutritional_elements": "Formula milk nutrients, Vitamin D drops as prescribed by pediatrician, and proper hydration.",
         "prep_method": "Prepare formula precisely according to instructions using warm sterilized water in a newborn bottle.",
-        "food_image": "https://images.unsplash.com/photo-1588628566661-ca74fb830f4a?w=600", # شكل برونة رقم 1
+        "food_image": "https://images.unsplash.com/photo-1588628566661-ca74fb830f4a?w=600",
         "challenges": "Night waking and adjusting to day/night cycles.",
         "tips": "Establish a calming bedtime routine early. Talk to your baby frequently to build language skills."
     },
-    0.33: {  # 4 Months
+    0.33: {
         "expected_height": 64,
         "experiences": "Holding head steady without support, smiling spontaneously, reaching for toys with one hand, and laughing out loud.",
         "activities": "Sitting with support, playing with rattles, interactive mirroring, and tummy time.",
@@ -25,28 +25,28 @@ development_data = {
         "nutrition": "Formula milk feeding using an anti-colic feeding bottle.",
         "nutritional_elements": "Proteins, lactose for energy, and balanced vitamins.",
         "prep_method": "Mix formula powder thoroughly in an anti-colic bottle to reduce air swallowing during feeding.",
-        "food_image": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600", # شكل برونة رقم 2
+        "food_image": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600",
         "challenges": "Sleep regression (the 4-month sleep shift) and increased fussiness.",
         "tips": "Be patient with sleep shifts. Watch for early hunger cues before crying begins."
     },
-    0.5: {  # 6 Months
+    0.5: {
         "expected_height": 68,
         "experiences": "Rolling over in both directions, sitting without support, babbling consonant sounds, and recognizing familiar faces.",
         "activities": "Reaching for hanging toys, water play during bath time, and interactive peek-a-boo.",
         "activity_image": "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600",
         "nutrition": "Formula milk via training bottle, plus very early introduction of single-ingredient purees.",
         "nutritional_elements": "Iron, Zinc, and Vitamin D.",
-        "prep_method": "Steam single vegetables (like zucchini) thoroughly and blend into a smooth puree. Prepare formula in a separate training bottle.",
+        "prep_method": "Steam single vegetables thoroughly and blend into a smooth puree. Prepare formula in a separate training bottle.",
         "food_image": "https://images.unsplash.com/photo-1594991464149-a2e6fbb6b359?w=600",
         "challenges": "Teething pain starting and transition to solid foods.",
         "tips": "Introduce one new food at a time and wait 3 days to check for any allergies."
     },
-    0.75: {  # 9 Months
+    0.75: {
         "expected_height": 72,
         "experiences": "Crawling, pulling to stand, using pincer grasp (thumb and index finger), and understanding 'no'.",
         "activities": "Stacking soft rings, crawling through safe tunnels, and playing hiding games with toys.",
         "activity_image": "https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=600",
-        "nutrition": "Formula milk in a transition sippy/bottle combined with mashed table foods.",
+        "nutrition": "Formula milk in a transition feeding bottle combined with mashed table foods.",
         "nutritional_elements": "Iron-rich foods, Calcium, and healthy fats.",
         "prep_method": "Mash soft-cooked vegetables and proteins. Keep formula ready in a secure feeding bottle for nap times.",
         "food_image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600",
@@ -75,7 +75,7 @@ development_data = {
         "prep_method": "Mash fava beans with olive oil. Bake small, bite-sized lean beef meatballs until soft.",
         "food_image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600",
         "challenges": "Severe temper tantrums and saying 'no' to everything.",
-        "tips": "Offer simple choices (e.g., 'red shirt or blue shirt?') to satisfy their need for control."
+        "tips": "Offer them simple choices to satisfy their need for control."
     },
     3.0: {
         "expected_height": 95,
@@ -98,7 +98,7 @@ development_data = {
         "nutritional_elements": "Magnesium, Iron from leafy greens, and Omega-3.",
         "prep_method": "Boil whole wheat pasta and mix with finely chopped spinach and cheese.",
         "food_image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600",
-        "challenges": "Testing boundaries and occasional lying (fantasy vs reality).",
+        "challenges": "Testing boundaries and occasional lying.",
         "tips": "Set clear, simple rules and follow through with logical consequences."
     },
     5.0: {
@@ -245,6 +245,7 @@ development_data = {
         "challenges": "Anxiety about future and exams.",
         "tips": "Celebrate their independence and prepare for real-world responsibilities."
     }
+}
        
 # 2. Vaccinations Data
 
