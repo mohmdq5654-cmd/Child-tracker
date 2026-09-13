@@ -10,10 +10,10 @@ development_data = {
         "experiences": "Beginning to smile at people, holding head up briefly during tummy time, tracking moving objects with eyes, and making cooing sounds.",
         "activities": "Tummy time on a soft mat, dangling colorful toys, gentle talking, and singing.",
         "activity_image": "https://images.unsplash.com/photo-1544126592-807ade215a0b?w=600",
-        "nutrition": "Exclusive breastmilk or formula feeding.",
-        "nutritional_elements": "Colostrum/Milk fats, Vitamin D drops as prescribed by pediatrician, and high water content.",
-        "prep_method": "Strictly milk-based feeding (breastmilk or formula). No water or solids needed yet.",
-        "food_image": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600",
+        "nutrition": "Formula milk feeding using a newborn feeding bottle.",
+        "nutritional_elements": "Formula milk nutrients, Vitamin D drops as prescribed by pediatrician, and proper hydration.",
+        "prep_method": "Prepare formula precisely according to instructions using warm sterilized water in a newborn bottle.",
+        "food_image": "https://images.unsplash.com/photo-1588628566661-ca74fb830f4a?w=600", # شكل برونة رقم 1
         "challenges": "Night waking and adjusting to day/night cycles.",
         "tips": "Establish a calming bedtime routine early. Talk to your baby frequently to build language skills."
     },
@@ -22,10 +22,10 @@ development_data = {
         "experiences": "Holding head steady without support, smiling spontaneously, reaching for toys with one hand, and laughing out loud.",
         "activities": "Sitting with support, playing with rattles, interactive mirroring, and tummy time.",
         "activity_image": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600",
-        "nutrition": "Breastmilk or infant formula exclusively.",
-        "nutritional_elements": "Proteins, lactose for energy, and early iron stores support.",
-        "prep_method": "Prepare formula precisely according to instructions, or pure breastfeeding on demand.",
-        "food_image": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600",
+        "nutrition": "Formula milk feeding using an anti-colic feeding bottle.",
+        "nutritional_elements": "Proteins, lactose for energy, and balanced vitamins.",
+        "prep_method": "Mix formula powder thoroughly in an anti-colic bottle to reduce air swallowing during feeding.",
+        "food_image": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600", # شكل برونة رقم 2
         "challenges": "Sleep regression (the 4-month sleep shift) and increased fussiness.",
         "tips": "Be patient with sleep shifts. Watch for early hunger cues before crying begins."
     },
@@ -34,9 +34,9 @@ development_data = {
         "experiences": "Rolling over in both directions, sitting without support, babbling consonant sounds, and recognizing familiar faces.",
         "activities": "Reaching for hanging toys, water play during bath time, and interactive peek-a-boo.",
         "activity_image": "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600",
-        "nutrition": "Breastmilk/formula plus very early introduction of single-ingredient purees if pediatrician approved.",
-        "nutritional_elements": "Iron (natural stores deplete around 6 months), Zinc, and Vitamin D.",
-        "prep_method": "Steam single vegetables (like zucchini or carrots) thoroughly and blend into a smooth, runny puree without salt.",
+        "nutrition": "Formula milk via training bottle, plus very early introduction of single-ingredient purees.",
+        "nutritional_elements": "Iron, Zinc, and Vitamin D.",
+        "prep_method": "Steam single vegetables (like zucchini) thoroughly and blend into a smooth puree. Prepare formula in a separate training bottle.",
         "food_image": "https://images.unsplash.com/photo-1594991464149-a2e6fbb6b359?w=600",
         "challenges": "Teething pain starting and transition to solid foods.",
         "tips": "Introduce one new food at a time and wait 3 days to check for any allergies."
@@ -46,9 +46,9 @@ development_data = {
         "experiences": "Crawling, pulling to stand, using pincer grasp (thumb and index finger), and understanding 'no'.",
         "activities": "Stacking soft rings, crawling through safe tunnels, and playing hiding games with toys.",
         "activity_image": "https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=600",
-        "nutrition": "Milk feedings combined with mashed or finely chopped table foods (thicker textures).",
-        "nutritional_elements": "Iron-rich foods (mashed egg yolks, well-cooked lentils), Calcium, and healthy fats.",
-        "prep_method": "Mash soft-cooked vegetables and proteins with a fork. Avoid adding honey, salt, or sugar.",
+        "nutrition": "Formula milk in a transition sippy/bottle combined with mashed table foods.",
+        "nutritional_elements": "Iron-rich foods, Calcium, and healthy fats.",
+        "prep_method": "Mash soft-cooked vegetables and proteins. Keep formula ready in a secure feeding bottle for nap times.",
         "food_image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600",
         "challenges": "Stranger anxiety and separation anxiety peaking.",
         "tips": "Keep mealtimes social by eating together. Encourage finger foods to build motor skills."
@@ -245,8 +245,6 @@ development_data = {
         "challenges": "Anxiety about future and exams.",
         "tips": "Celebrate their independence and prepare for real-world responsibilities."
     }
-}
-
        
 # 2. Vaccinations Data
 
