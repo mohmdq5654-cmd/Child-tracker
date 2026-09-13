@@ -1,9 +1,8 @@
 import streamlit as st
 
-
-
+# ==========================================
 # 1. Comprehensive Developmental Data (Ages 0.25 to 16)
-
+# ==========================================
 development_data = {
     0.25: {
         "expected_height": 61,
@@ -243,11 +242,13 @@ development_data = {
         "prep_method": "Grill chicken breast and serve with a large mixed salad.",
         "food_image": "https://images.unsplash.com/photo-1534080564583-6be75777b70a?auto=format&fit=crop&w=600&q=80",
         "challenges": "Obstacle: Extreme anxiety about the future, university, and entering adulthood.",
-        "tips": "How to overcome: Celebrate their independence. Assure them that it is okay not to have their whole life figured out yet."}
+        "tips": "How to overcome: Celebrate their independence. Assure them that it is okay not to have their whole life figured out yet."
+    }
 }
-       
-# 2. Vaccinations Data
 
+# ==========================================
+# 2. Vaccinations Data
+# ==========================================
 vaccine_data = {
     "2 Months": {"vaccines": "Hexavalent, Rotavirus, Pneumococcal.", "symptoms": "Mild fever, sleepiness, swelling at injection site."},
     "4 Months": {"vaccines": "Hexavalent, Rotavirus, Pneumococcal.", "symptoms": "Low-grade fever, irritability, decreased appetite."},
@@ -257,12 +258,11 @@ vaccine_data = {
     "18 Months": {"vaccines": "Booster DTP, Polio, MMR booster.", "symptoms": "Soreness, fever, tiredness."}
 }
 
-
+# ==========================================
 # 3. Calculations
-
+# ==========================================
 def calculate_expected_weight(age_years):
     if age_years < 1.0:
-
         age_months = age_years * 12
         return round((age_months + 9) / 2, 1)
     elif age_years <= 6.0:
@@ -283,8 +283,9 @@ def check_height_status(actual_height, expected_height):
 def calculate_daily_milk(weight_kg):
     return round(weight_kg * 150)
 
+# ==========================================
 # 4. Streamlit UI & Navigation
-
+# ==========================================
 st.set_page_config(page_title="Child Growth Tracker", page_icon="👶", layout="wide")
 
 # session state for persistent data
@@ -309,9 +310,9 @@ st.sidebar.image("https://images.unsplash.com/photo-1519689680058-324335c77eba?w
 st.sidebar.title("📌 Menu")
 page = st.sidebar.radio("Go to:", ["👤 Profile Setup", "📊 Growth & Vitals", "🏃 Activities & Milestones", "💉 Vaccinations"])
 
-
+# ------------------------------------------
 # PAGE 1: Profile Setup
-
+# ------------------------------------------
 if page == "👤 Profile Setup":
     st.title("👤 Family Profile Setup")
     st.write("Welcome! Please enter your details below. We will remember them as you navigate the app.")
@@ -327,8 +328,9 @@ if page == "👤 Profile Setup":
     if st.session_state.father_name or st.session_state.mother_name or st.session_state.child_name:
         st.success("Profile updated! You can now navigate to other pages from the menu on the left.")
 
-
+# ------------------------------------------
 # PAGE 2: Growth & Vitals
+# ------------------------------------------
 elif page == "📊 Growth & Vitals":
     st.title("📊 Growth & Vitals Tracker")
     st.write(f"Welcome {get_parents_address()}! Let's check {get_child_name()}'s physical growth.")
@@ -360,14 +362,7 @@ elif page == "📊 Growth & Vitals":
             st.warning("Note: Weight and height formulas vary heavily during teenage years due to growth spurts.")
             
         r_col1, r_col2 = st.columns(2)
-        with r_col1:
-            st.info(f"⚖️ **Expected Ideal Weight:** ~{expected_weight} kg")
-            w_status, w_icon = check_weight_status(actual_weight, expected_weight)
-            st.metric(label="Weight Status", value=f"{w_icon} {w_status}", delta=f"{actual_weight - expected_weight:.1f} kg")
-        with r_col2:
-            st.info(f"📏 **Expected Ideal Height:** ~{expected_height} cm")
-            h_status, h_icon = check_height_status(actual_height, expected_height)
-            st.metric(label="Height Status", value=f"{h_icon} {h_status}", delta=f"{actual_height - expected_height:.1f} cm")
+        
         # Weight Analysis
         with r_col1:
             st.info(f"⚖️ **Expected Ideal Weight:** ~{expected_weight} kg")
@@ -380,16 +375,14 @@ elif page == "📊 Growth & Vitals":
             h_status, h_icon = check_height_status(actual_height, expected_height)
             st.metric(label="Height Status", value=f"{h_icon} {h_status}", delta=f"{actual_height - expected_height:.1f} cm from ideal")
 
-
-
-# PAGE 3: Activities & Milestones 
-
+# ------------------------------------------
+# PAGE 3: Activities & Milestones
+# ------------------------------------------
 elif page == "🏃 Activities & Milestones":
     st.title("🏃 Activities, Nutrition & Milestones")
     st.write(f"Dear {get_parents_address()}, here is what to expect and how to support {get_child_name()} at this age.")
     
     # Generate age list including 0.5 (6 months)
-  
     age_options = [0.25, 0.33, 0.5, 0.75] + [float(x) for x in range(1, 17)]
     
     def format_age_label(x):
@@ -409,6 +402,7 @@ elif page == "🏃 Activities & Milestones":
         st.markdown("---")
         
         col1, col2 = st.columns(2)
+        
         with col1:
             st.subheader("🎨 Recommended Activities")
             st.success(info['activities'])
@@ -418,33 +412,22 @@ elif page == "🏃 Activities & Milestones":
             
             st.subheader("🍎 Nutrition & Elements")
             st.info(f"**Diet:** {info['nutrition']}\n\n**Key Elements Needed:** {info.get('nutritional_elements', 'Balanced diet essential for growth.')}")
+            
             with st.expander(f"🍳 View Preparation Method & Food Ideas"):
-                st.write(f"**How to prepare:** {info.get('prep_method', '')}")
+                st.write(f"**How to prepare:** {info.get('prep_method', 'Prepare balanced meals with safe cuts.')}")
                 if 'food_image' in info:
                     st.image(info['food_image'], caption="Healthy Meal Inspiration", use_container_width=True)
                 
-       with col2:
+        with col2:
             st.subheader("🚧 Obstacles & Challenges")
             st.error(info['challenges'])
             
             st.subheader("🛠️ How to Overcome Them")
             st.success(info['tips'])
 
-
-             #Image and Recipe
-            with st.expander(f"🍳 View Preparation Method & Food Ideas for {get_child_name()}"):
-                st.write(f"**How to prepare:** {info.get('prep_method', 'Prepare balanced meals with safe cuts.')}")
-                if 'food_image' in info:
-                    st.image(info['food_image'], caption="Healthy Meal Inspiration", use_container_width=True)
-                
-        with col2:
-            st.subheader("🛡️ Common Challenge")
-            st.error(info['challenges'])
-            
-            st.subheader("💡 Parenting Advice")
-            st.warning(info['tips'])
+# ------------------------------------------
 # PAGE 4: Vaccinations
-
+# ------------------------------------------
 elif page == "💉 Vaccinations":
     st.title("💉 Vaccination Schedule & Care")
     st.warning("Note: Always consult your pediatrician. Normal symptoms usually subside within 24-48 hours.")
@@ -457,4 +440,4 @@ elif page == "💉 Vaccinations":
     
     st.error(f"🌡️ **Normal Post-Vaccine Symptoms to expect:**\n\n{vaccine_data[selected_month]['symptoms']}")
     
-    st.success(f"**Home Care Tips for {get_parents_address()}:**\n- Apply cold compresses to the injection site.\n- Offer plenty of fluids.\n- Use paracetamol
+    st.success(f"**Home Care Tips for {get_parents_address()}:**\n- Apply cold compresses to the injection site.\n- Offer plenty of fluids.\n- Use paracetamol only if advised by a doctor.")
