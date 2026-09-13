@@ -243,7 +243,8 @@ development_data = {
         "prep_method": "Grill chicken breast and serve with a large mixed salad.",
         "food_image": "https://images.unsplash.com/photo-1534080564583-6be75777b70a?auto=format&fit=crop&w=600&q=80",
         "challenges": "Obstacle: Extreme anxiety about the future, university, and entering adulthood.",
-        "tips": "How to overcome: Celebrate their independence. Assure them that it is okay not to have their whole life figured out yet."
+        "tips": "How to overcome: Celebrate their independence. Assure them that it is okay not to have their whole life figured out yet."}
+}
        
 # 2. Vaccinations Data
 
