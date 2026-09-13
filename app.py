@@ -1,10 +1,10 @@
 import streamlit as st
 
-
+# ==========================================
 # 1. Comprehensive Developmental Data
-
+# ==========================================
 development_data = {
-
+    # ---------------- INFANTS (1 TO 11 MONTHS) ----------------
     "1 Month": {
         "expected_height": 54,
         "experiences": "Adapting to the world, recognizing parents' voices, keeping hands in tight fists.",
@@ -85,7 +85,7 @@ development_data = {
         "challenges": "Obstacle: Refusing to be spoon-fed.",
         "tips": "How to overcome: Encourage independent feeding with safe finger foods."
     },
-   
+    # ---------------- TODDLERS TO TEENS ----------------
     "1 Year": {
         "expected_height": 75,
         "experiences": "Walking with support or independently, first clear words.",
@@ -168,14 +168,17 @@ development_data = {
     }
 }
 
-# Add missing intermediate years automatically to prevent errors if selected
+# Add missing intermediate years
 for age in range(4, 16):
     if f"{age} Years" not in development_data and age not in [6, 10]:
         development_data[f"{age} Years"] = development_data["6 Years"].copy()
+for age in range(1, 12):
+    if f"{age} Month" not in development_data and f"{age} Months" not in development_data:
+        development_data[f"{age} Months" if age > 1 else "1 Month"] = development_data["6 Months"].copy()
 
-
+# ==========================================
 # 2. Vaccinations Data
-
+# ==========================================
 vaccine_data = {
     "At Birth (0-1 Month)": {
         "vaccines": "BCG (Tuberculosis), Hepatitis B (1st dose), OPV (Oral Polio - Zero dose).", 
@@ -189,9 +192,9 @@ vaccine_data = {
     "18 Months": {"vaccines": "Booster DTP, Polio, MMR booster.", "symptoms": "Soreness, fever, tiredness."}
 }
 
-
+# ==========================================
 # 3. Calculations
-
+# ==========================================
 def calculate_expected_weight(age_years):
     if age_years < 1.0:
         age_months = age_years * 12
@@ -214,30 +217,27 @@ def check_height_status(actual_height, expected_height):
 def calculate_daily_milk(weight_kg):
     return round(weight_kg * 150)
 
-
-#  Streamlit Configuration & State
-
+# ==========================================
+# 4. Streamlit Configuration & State
+# ==========================================
 st.set_page_config(page_title="Child Growth Tracker", page_icon="👶", layout="wide", initial_sidebar_state="collapsed")
 
-# Custom CSS 
 st.markdown("""
 <style>
-    /* Hide the sidebar */
     [data-testid="collapsedControl"] { display: none; }
     [data-testid="stSidebar"] { display: none; }
     
-    /* CSS for the Rotating Wheel Buttons */
     .wheel-btn button {
         width: 170px !important;
         height: 170px !important;
         border-radius: 50% !important;
-        border: 6px dashed #4CAF50 !important; /* إطار منقط عشان يبين لفة العجلة */
+        border: 6px dashed #4CAF50 !important; 
         font-size: 20px !important;
         font-weight: bold !important;
         background-color: #ffffff !important;
         color: #333333 !important;
         box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1) !important;
-        transition: transform 0.8s ease-in-out, background-color 0.4s, color 0.4s !important; /* حركة الدوران */
+        transition: transform 0.8s ease-in-out, background-color 0.4s, color 0.4s !important; 
         margin: 0 auto !important;
         display: flex !important;
         justify-content: center !important;
@@ -247,7 +247,7 @@ st.markdown("""
     .wheel-btn button:hover {
         background-color: #4CAF50 !important;
         color: #ffffff !important;
-        transform: rotate(360deg) scale(1.1) !important; /* لفة كاملة 360 درجة */
+        transform: rotate(360deg) scale(1.1) !important; 
         box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4) !important;
     }
     .center-div {
@@ -258,10 +258,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# 5. Routing Logic (The App Flow)
-
-
-
+# Initialize Session State
 if 'page_state' not in st.session_state: st.session_state.page_state = "Setup"
 if 'parent_name' not in st.session_state: st.session_state.parent_name = ""
 if 'child_name' not in st.session_state: st.session_state.child_name = ""
@@ -269,16 +266,32 @@ if 'child_name' not in st.session_state: st.session_state.child_name = ""
 def navigate(page_name):
     st.session_state.page_state = page_name
 
+# ==========================================
+# 5. Routing Logic
+# ==========================================
 
+# --- PAGE 1: SETUP ---
 if st.session_state.page_state == "Setup":
+    st.title("👶 Welcome to Child Growth Tracker")
+    st.write("Let's personalize your experience. Please enter your details:")
+    st.markdown("---")
+    
+    parent = st.text_input("Enter your name (Parent):", value=st.session_state.parent_name)
+    child = st.text_input("Enter your baby's name:", value=st.session_state.child_name)
+    
+    if st.button("🚀 Enter Dashboard"):
+        if parent and child:
+            st.session_state.parent_name = parent
+            st.session_state.child_name = child
+            navigate("Wheel")
+            st.rerun()
+        else:
+            st.error("Please enter both names to continue.")
 
-
-#  MAIN WHEEL 
-
+# --- PAGE 2: MAIN WHEEL ---
 elif st.session_state.page_state == "Wheel":
     st.markdown(f"<h1 style='text-align: center; color: #4CAF50;'>👋 Welcome {st.session_state.parent_name} & Baby {st.session_state.child_name}! 🌟</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>Hover over the wheels below to spin them and choose your path!</h3><br>", unsafe_allow_html=True)
-    
     
     t1, t2, t3 = st.columns([1, 1, 1])
     with t2:
@@ -298,14 +311,15 @@ elif st.session_state.page_state == "Wheel":
         st.button("💉\nVaccinations", on_click=navigate, args=("Vaccinations",), key="btn_vax")
         st.markdown('</div>', unsafe_allow_html=True)
         
-    st.write("")
+    st.write("") 
         
     b1, b2, b3 = st.columns([1, 1, 1])
     with b2:
         st.markdown('<div class="wheel-btn center-div">', unsafe_allow_html=True)
         st.button("👤\nEdit Profile", on_click=navigate, args=("Setup",), key="btn_prof")
         st.markdown('</div>', unsafe_allow_html=True)
-#  GROWTH & VITALS 
+
+# --- PAGE 3: GROWTH & VITALS ---
 elif st.session_state.page_state == "Growth":
     st.button("🔙 Back to Main Wheel", on_click=navigate, args=("Wheel",))
     st.markdown("---")
@@ -324,12 +338,14 @@ elif st.session_state.page_state == "Growth":
     if st.button("Analyze Growth", type="primary"):
         expected_weight = calculate_expected_weight(age)
         
-        # Determine expected height based on age matching
         if age < 1.0:
             months = round(age * 12)
+            if months <= 0: months = 1
+            if months > 11: months = 11
             dict_key = f"{months} Month" if months == 1 else f"{months} Months"
         else:
             years = round(age)
+            if years > 16: years = 16
             dict_key = f"{years} Year" if years == 1 else f"{years} Years"
             
         expected_height = development_data.get(dict_key, {}).get("expected_height", 100)
@@ -354,20 +370,18 @@ elif st.session_state.page_state == "Growth":
             h_status, h_icon = check_height_status(actual_height, expected_height)
             st.metric(label="Height Status", value=f"{h_icon} {h_status}", delta=f"{actual_height - expected_height:.1f} cm")
 
-#  ACTIVITIES & DIET 
+# --- PAGE 4: ACTIVITIES & DIET ---
 elif st.session_state.page_state == "Activities":
     st.button("🔙 Back to Main Wheel", on_click=navigate, args=("Wheel",))
     st.markdown("---")
     
     st.title("🏃 Activities, Comprehensive Diet & Milestones")
     
-    # Generate clean list of ages (1-11 Months, then 1-16 Years)
     age_options = [f"{m} Month" if m == 1 else f"{m} Months" for m in range(1, 12)]
     age_options += [f"{y} Year" if y == 1 else f"{y} Years" for y in range(1, 17)]
     
     age_selection = st.selectbox("Select Age:", age_options)
     
-    # Use fallback to 6 Years if intermediate year is missing in dictionary
     data_key = age_selection if age_selection in development_data else "6 Years"
     info = development_data[data_key]
         
@@ -412,7 +426,7 @@ elif st.session_state.page_state == "Activities":
         st.subheader("🛠️ How to Overcome Them")
         st.success(info['tips'])
 
-# VACCINATIONS 
+# --- PAGE 5: VACCINATIONS ---
 elif st.session_state.page_state == "Vaccinations":
     st.button("🔙 Back to Main Wheel", on_click=navigate, args=("Wheel",))
     st.markdown("---")
