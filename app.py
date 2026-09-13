@@ -262,22 +262,16 @@ st.markdown("""
 
 
 
+if 'page_state' not in st.session_state: st.session_state.page_state = "Setup"
+if 'parent_name' not in st.session_state: st.session_state.parent_name = ""
+if 'child_name' not in st.session_state: st.session_state.child_name = ""
+
+def navigate(page_name):
+    st.session_state.page_state = page_name
+
+
 if st.session_state.page_state == "Setup":
-    st.title("👶 Welcome to Child Growth Tracker")
-    st.write("Let's personalize your experience. Please enter your details:")
-    st.markdown("---")
-    
-    parent = st.text_input("Enter your name (Parent):", value=st.session_state.parent_name)
-    child = st.text_input("Enter your baby's name:", value=st.session_state.child_name)
-    
-    if st.button("🚀 Enter Dashboard"):
-        if parent and child:
-            st.session_state.parent_name = parent
-            st.session_state.child_name = child
-            navigate("Wheel")
-            st.rerun()
-        else:
-            st.error("Please enter both names to continue.")
+
 
 #  MAIN WHEEL 
 
