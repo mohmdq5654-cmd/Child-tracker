@@ -312,7 +312,6 @@ elif page == "📊 Growth & Vitals":
 
 # PAGE 3: Activities & Milestones
 
--
 elif page == "🏃 Activities & Milestones":
     st.title("🏃 Activities, Comprehensive Diet & Milestones")
     st.write(f"Dear {get_parents_address()}, here is what to expect and how to support {get_child_name()} at this age.")
