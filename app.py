@@ -312,8 +312,9 @@ elif page == "📊 Growth & Vitals":
 
 # PAGE 3: Activities & Milestones
 
-lif page == "🏃 Activities & Milestones":
-    st.title("🏃 Activities, Nutrition & Milestones")
+-
+elif page == "🏃 Activities & Milestones":
+    st.title("🏃 Activities, Comprehensive Diet & Milestones")
     st.write(f"Dear {get_parents_address()}, here is what to expect and how to support {get_child_name()} at this age.")
     
     age_options = [0.25, 0.33, 0.5, 0.75] + [float(x) for x in range(1, 17)]
@@ -343,22 +344,33 @@ lif page == "🏃 Activities & Milestones":
                 if 'activity_image' in info:
                     st.image(info['activity_image'], caption="Activity Idea Placeholder", use_container_width=True)
             
-            st.subheader("🍎 Nutrition & Diet Plan")
-            st.info(f"""
-            **🔥 Daily Calories:** {info.get('daily_calories', 'Varies')}
-            **🍽️ Meals per day:** {info.get('meals_per_day', '3 meals')}
+            st.subheader("🍎 Clinical Nutrition & Diet Plan")
+            st.info(f"**🔥 Daily Calories:** {info.get('daily_calories', 'Varies')}")
             
-            **🍱 Meals Variety:**
-            {info.get('meals_variety', 'Balanced diet')}
+       
+            tab1, tab2, tab3, tab4, tab5 = st.tabs(["🍳 Breakfast", "🍲 Main Meals", "🥨 Snacks", "🧁 Sweets", "🧃 Juices/Drinks"])
             
-            **🥨 Healthy Snacks:**
-            {info.get('snacks', 'Fruits and nuts')}
+            with tab1:
+                st.write("**Healthy Breakfast Options:**")
+                st.write(info.get('breakfast', 'Balanced breakfast'))
+            with tab2:
+                st.write("**Healthy Lunch/Dinner Options:**")
+                st.write(info.get('meals', 'Balanced meals'))
+            with tab3:
+                st.write("**Healthy Snacks:**")
+                st.write(info.get('snacks', 'Healthy snacks'))
+            with tab4:
+                st.write("**Healthy Sweets (No added refined sugar):**")
+                st.write(info.get('sweets', 'Natural sweets'))
+            with tab5:
+                st.write("**Drinks & Juices:**")
+                st.write(info.get('juices', 'Water and Milk'))
+                if age_selection < 1.0:
+                    st.error("⚠️ Medical Note: Juices and added sugars are strictly prohibited for infants under 1 year.")
+
+            st.markdown(f"**🧪 Key Nutrients Needed:** {info.get('nutritional_elements', 'Balanced diet essential for growth.')}")
             
-            **🧪 Key Nutrients Needed:** 
-            {info.get('nutritional_elements', 'Balanced diet essential for growth.')}
-            """)
-            
-            with st.expander(f"🍳 View Preparation Method & Food Ideas"):
+            with st.expander(f"👩‍🍳 View Preparation Method & Food Ideas"):
                 st.write(f"**How to prepare:** {info.get('prep_method', 'Prepare balanced meals with safe cuts.')}")
                 if 'food_image' in info:
                     st.image(info['food_image'], caption="Meal Idea Placeholder", use_container_width=True)
@@ -372,7 +384,8 @@ lif page == "🏃 Activities & Milestones":
 
 
 # PAGE 4: Vaccinations
-    elif page == "💉 Vaccinations":
+
+elif page == "💉 Vaccinations":
     st.title("💉 Vaccination Schedule & Care")
     st.warning("Note: Always consult your pediatrician. Normal symptoms usually subside within 24-48 hours.")
     
